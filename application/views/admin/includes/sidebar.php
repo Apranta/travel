@@ -1,95 +1,63 @@
-<button class="m-aside-left-close  m-aside-left-close--skin-dark " id="m_aside_left_close_btn">
-                <i class="la la-close"></i>
-            </button>
-            <div id="m_aside_left" class="m-grid__item  m-aside-left  m-aside-left--skin-dark ">
-                <!-- BEGIN: Aside Menu -->
-                <div id="m_ver_menu" class="m-aside-menu  m-aside-menu--skin-dark m-aside-menu--submenu-skin-dark " m-menu-vertical="1" m-menu-scrollable="1" m-menu-dropdown-timeout="500" style="position: relative;">
-                    <ul class="m-menu__nav  m-menu__nav--dropdown-submenu-arrow ">
-                        <li class="m-menu__item  m-menu__item--active" aria-haspopup="true">
-                            <a href="index.html" class="m-menu__link ">
-                                <i class="m-menu__link-icon flaticon-line-graph"></i>
-                                <span class="m-menu__link-title">
-                                    <span class="m-menu__link-wrap">
-                                        <span class="m-menu__link-text">
-                                            Dashboard
-                                        </span>
-                                        <span class="m-menu__link-badge">
-                                            <span class="m-badge m-badge--danger">
-                                                2
-                                            </span>
-                                        </span>
-                                    </span>
-                                </span>
-                            </a>
-                        </li>
-                        <li class="m-menu__section ">
-                            <h4 class="m-menu__section-text">
-                                Snippets
-                            </h4>
-                            <i class="m-menu__section-icon flaticon-more-v3"></i>
-                        </li>
-                        <li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true" m-menu-submenu-toggle="hover">
-                            <a href="javascript:;" class="m-menu__link m-menu__toggle">
-                                <i class="m-menu__link-icon flaticon-interface-9"></i>
-                                <span class="m-menu__link-text">
-                                    Pricing Tables
-                                </span>
-                                <i class="m-menu__ver-arrow la la-angle-right"></i>
-                            </a>
-                            <div class="m-menu__submenu ">
-                                <span class="m-menu__arrow"></span>
-                                <ul class="m-menu__subnav">
-                                    <li class="m-menu__item  m-menu__item--parent" aria-haspopup="true">
-                                        <span class="m-menu__link">
-                                            <span class="m-menu__link-text">
-                                                Pricing Tables
-                                            </span>
-                                        </span>
-                                    </li>
-                                    <li class="m-menu__item " aria-haspopup="true">
-                                        <a href="snippets/general/pricing-tables/pricing-table-1.html" class="m-menu__link ">
-                                            <i class="m-menu__link-bullet m-menu__link-bullet--dot">
-                                                <span></span>
-                                            </i>
-                                            <span class="m-menu__link-text">
-                                                Pricing Tables v1
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li class="m-menu__item " aria-haspopup="true">
-                                        <a href="snippets/general/pricing-tables/pricing-table-2.html" class="m-menu__link ">
-                                            <i class="m-menu__link-bullet m-menu__link-bullet--dot">
-                                                <span></span>
-                                            </i>
-                                            <span class="m-menu__link-text">
-                                                Pricing Tables v2
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li class="m-menu__item " aria-haspopup="true">
-                                        <a href="snippets/general/pricing-tables/pricing-table-3.html" class="m-menu__link ">
-                                            <i class="m-menu__link-bullet m-menu__link-bullet--dot">
-                                                <span></span>
-                                            </i>
-                                            <span class="m-menu__link-text">
-                                                Pricing Tables v3
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li class="m-menu__item " aria-haspopup="true">
-                                        <a href="snippets/general/pricing-tables/pricing-table-4.html" class="m-menu__link ">
-                                            <i class="m-menu__link-bullet m-menu__link-bullet--dot">
-                                                <span></span>
-                                            </i>
-                                            <span class="m-menu__link-text">
-                                                Pricing Tables v4
-                                            </span>
+<div class="page-sidebar-wrapper">
+                    <!-- BEGIN SIDEBAR -->
+                    <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+                    <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+                    <div class="page-sidebar navbar-collapse collapse">
+                        <!-- BEGIN SIDEBAR MENU -->
+                        <!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
+                        <!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
+                        <!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
+                        <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+                        <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
+                        <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+                        <ul class="page-sidebar-menu  page-header-fixed " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+                            <li class="nav-item start active open">
+                                <a href="javascript:;" class="nav-link nav-toggle">
+                                    <i class="icon-home"></i>
+                                    <span class="title">Dashboard</span>
+                                    <span class="selected"></span>
+                                    <span class="arrow open"></span>
+                                </a>
+                                <ul class="sub-menu">
+                                    <li class="nav-item start active open">
+                                        <a href="index.html" class="nav-link ">
+                                            <i class="icon-bar-chart"></i>
+                                            <span class="title">Dashboard 1</span>
+                                            <span class="selected"></span>
                                         </a>
                                     </li>
                                 </ul>
-                            </div>
-                        </li>
-                    </ul>
+                            </li>
+                            <li class="heading">
+                                <h3 class="uppercase">Features</h3>
+                            </li>
+                            <li class="nav-item  ">
+                                <a href="javascript:;" class="nav-link nav-toggle">
+                                    <i class="icon-diamond"></i>
+                                    <span class="title">UI Features</span>
+                                    <span class="arrow"></span>
+                                </a>
+                                <ul class="sub-menu">
+                                    <li class="nav-item  ">
+                                        <a href="ui_metronic_grid.html" class="nav-link ">
+                                            <span class="title">Metronic Grid System</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item  ">
+                                        <a href="ui_colors.html" class="nav-link ">
+                                            <span class="title">Color Library</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item  ">
+                                        <a href="ui_general.html" class="nav-link ">
+                                            <span class="title">General Components</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <!-- END SIDEBAR MENU -->
+                    </div>
+                    <!-- END SIDEBAR -->
                 </div>
-                <!-- END: Aside Menu -->
-            </div>
+                <div class="page-fixed-main-content">

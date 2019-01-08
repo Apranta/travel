@@ -35,7 +35,7 @@ class Admin extends MY_Controller
 	public function data_menu()
 	{
 		$this->data['title']	= 'Dashboard';
-		$this->data['content']	= 'dashboard';
+		$this->data['content']	= 'menu';
 		$this->template($this->data, $this->module);
 	}
 
