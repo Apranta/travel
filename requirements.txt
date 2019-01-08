@@ -1,0 +1,35 @@
+ada dua jenis paket tour :
+domestik dan internasional
+khusus yang internasional ketika pemesanan diberi option apakah ingin dibantu pembuatan passport dan visa
+
+register hanya bisa check dashboard
+
+user harus login untuk pesan
+
+login harus konfirmasi email
+
+metode pembayaran menampilkan no rek perusahaan selanjutnya upload foto bukti pembayaran, mendapat email konfirmasi bahwa pembayaran telah diterima dan mendapatkan nomer pemesanan 
+
+setiap selesai trip ketika user membuka website menampilkan box testimoni
+
+live chat customer service
+
+price not fixed, semakin banyak jumlah orang yg dipesan semakin murah
+
+
+
+1. User dak login : biso liat paket yg ado, biso liat testimoni, biso liat gallery foto
+
+2. User yang login : samo cak user dak login + pesen menu, live chat, kasih testi
+
+3. Admin : biso edit menu, biso edit hargo, biso edit paket, biso edit gallery, biso liat jumlah pemesan, biso liat pesanan yg lah dibayar, biso konfirmasi pesanan, biso hapus paket / gallery
+
+4. Pemilik : biso liat laporan penjualan per bulan dan per tahun
+
+Trs tambahi 1 menu lg ki, itu ado gallery, nah dlm gallery itu agek dibagi lagi sesuai domestik / internasional
+Misal lampung gek ado fotonyo dewek
+Misal singapur ado fotonyo dewek, cak beda folder cak itulah
+
+Utk fotonyo gek aku kasih secepetnyo via flashdisk
+
+
