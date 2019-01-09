@@ -28,9 +28,9 @@
           </div>
       </div>
     </div>
-</div>
-    <div style="display:flex; align-items:center">
-        <h2 style="color:var(--black); flex:1">Tebaru</h2>
+</div><br>
+    <div style="display:flex; align-items:center;">
+        <h2 style="color:var(--black); flex:1">Domestik</h2>
         <a class="btn btn-sm btn-primary" href="<?=base_url() .'search'?>">Selengkapnya >></a>
     </div>
     <div style="display:flex; flex-wrap:wrap">
