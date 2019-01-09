@@ -8,16 +8,16 @@
                           <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                           <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                       </ol>
-                      <div class="carousel-inner role="listbox" style=" width:100%; height: 500px !important;">
+                      <div class="carousel-inner role="listbox" style=" width:100%; height: 300px !important;">
                          <div class="carousel-item active">
-                              <img class="d-block w-100" src="<?= base_url('assets/images/backgrounds/Bali.jpg')?>" alt="First slide">
+                              <img class="d-block w-100" style="height: 300px" src="<?= base_url('assets/images/backgrounds/Bali.jpg')?>" alt="First slide">
                               <div class="carousel-caption d-none d-md-block">  
                                   <h5 class="text-white" >Lihat apa yang tejadi</h5>
                                   <p>sangat mengejutkan</p>
                             </div>
                         </div>
                       <div class="carousel-item">
-                          <img class="d-block w-100" src="<?= base_url('assets/images/backgrounds/Bali2.jpg')?>" alt="Second slide">
+                          <img class="d-block w-100" style="height: 300px" src="<?= base_url('assets/images/backgrounds/Bali2.jpg')?>" alt="Second slide">
                           <div class="carousel-caption d-none d-md-block">
                             <h5 class="text-white">Lihat apa yang tejadi</h5>
                             <p>sangat mengejutkan</p>
