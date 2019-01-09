@@ -1,10 +1,15 @@
 <!-- footer content -->
-        <footer>
-          <div class="pull-right">
-            Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+    <footer class="pt-5 pb-3" style= "background-color: hsl(0, 0%, 87%)">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-md-4">
+            <div class="pr-lg-5">
+              <h5 style="color:var(--Black);"><strong>Travel Titan</strong></h5>
+            </div>
           </div>
-          <div class="clearfix"></div>
-        </footer>
+          <hr>
+      </div>
+    </footer>
         <!-- /footer content -->
       </div>
     </div>

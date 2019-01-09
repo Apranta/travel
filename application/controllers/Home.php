@@ -5,14 +5,18 @@ class Home extends MY_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		$this->module = 'home';
+		$this->load->helper(['string']);
 	}
 
 	public function index()
 	{
-		$this->data['title']		= 'Home';
-		$this->data['content']		= 'home';
-		$this->template($this->data, $this->module);	
+		$pageData = array(
+			'title' => 'Halaman Utama',
+			'content' => 'HomePage',
+			'contentData' => array()
+		);
+
+		$this->load->view('Page', $pageData);
 	}
 
 	public function menu()
