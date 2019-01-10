@@ -20,6 +20,7 @@
     <!-- Theme CSS -->
     <link type="text/css" href="<?= base_url('assets/css/theme.css')?>" rel="stylesheet">
     <link type="text/css" href="<?= base_url('assets/css/styles.css')?>" rel="stylesheet">
+    <link type="text/css" href="<?= base_url('assets/css/styles.css')?>" rel="stylesheet">
 
     <!-- Plugin CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
@@ -33,7 +34,7 @@
 
     <!-- Page plugins -->
     <script src="<?= base_url('assets/vendor/bootstrap-select/js/bootstrap-select.min.js') ?>"></script>
-    <!-- <script src="<?= base_url('assets/vendor/animate/animate.min.js') ?>"></script> -->
+     <script src="<?= base_url('assets/vendor/animate/animate.min.js') ?>"></script> 
     <script src="<?= base_url('assets/vendor/bootstrap-tagsinput/bootstrap-tagsinput.min.js') ?>"></script>
     <script src="<?= base_url('assets/vendor/input-mask/input-mask.min.js') ?>"></script>
 
@@ -47,53 +48,44 @@
     
     <!-- Theme JS -->
     <script src="<?= base_url('assets/js/theme.js') ?>"></script>
-    
     <!-- Google Captcha -->
     <script src='https://www.google.com/recaptcha/api.js'></script>
   </head>
 
-  <body class="fixed-nav sticky-footer" id="page-top">
-    <nav class="navbar navbar-expand-lg" style= "background-color: hsl(0, 0%, 87%)">
-      <img src="<?= base_url('assets/images/logo/km.jpg')?>" width="35" height="30" alt="">
-      <a class="navbar-brand" href="<?php echo base_url();?>"><strong>Travel Titan</strong></a>
-      <button class="navbar-toggler" type="button" data-action="offcanvas-open" data-target="#navbar_main" aria-controls="navbar_main" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-       <div class="navbar-collapse offcanvas-collapse" id="navbar_main">
-        <ul class="navbar-nav mr-auto align-items-lg-center">
-          <?php if($this->session->userdata('isAdmin')){ ?>
-          <li class="nav-item">
-            <a class="nav-link  btn-label" href="<?php echo base_url();?>post/add"><i class="fas fa-plus"></i> Tambah Informasi</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link  btn-label" href="<?php echo base_url();?>user/manage"><i class="fas fa-edit"></i> Kelola User</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link  btn-label" href="<?php echo base_url();?>post/manage"><i class="fas fa-edit"></i> Kelola Informasi</a>
-          </li>
-          <?php } ?>
-        </ul>
-      </div>
-      <form class="navbar-collapse mx-auto" method="GET" action="<?=base_url() . 'search'?>">
+  <body id="page-top">
+   <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-4" style="background-color: #fff">
+      <div class="container">
+        <a class="navbar-brand" href="../"><strong>Travel Titan</strong></a>
+        <button class="navbar-toggler" type="button" data-action="offcanvas-open" data-target="#navbar_main" aria-controls="navbar_main" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <form class="navbar-collapse mx-auto" method="GET" action="<?=base_url() . 'search'?>">
         <input class="form-control mr-sm-2" type="search" name="title" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-primary my-2 my-sm-0 btn-animated btn-animated-y" type="submit">
-        <span class="btn-inner--visible">Cari</span></button>
+        <span class="btn-inner--visible">Cari</span>
+        <span class="btn-inner--hidden"><i class="fas fa-search"></i></span></button>
       </form>
-      <div class="navbar-collapse offcanvas-collapse" id="navbar_main">
-        <ul class="navbar-nav ml-auto align-items-lg-center">
-        <?php if(!$this->session->has_userdata('userId')){ ?>
-          <li class="nav-item">
+        <div class="navbar-collapse offcanvas-collapse" id="navbar_main">
+          <ul class="navbar-nav ml-auto align-items-lg-center">
+            <h6 class="dropdown-header font-weight-600 d-lg-none px-0">Menu</h6>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbar_main_dropdown_1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tujuan Wisata</a>
+              <div class="dropdown-menu" aria-labelledby="navbar_1_dropdown_1">
+                <a class="dropdown-item" href="../pages/homepage.html">Domestik</a>
+                <a class="dropdown-item" href="../pages/about.html">Internasional</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="">Galeri</a>
+            </li>
+            <div class="dropdown-divider d-lg-none my-4"></div>
+             <li class="nav-item">
             <a class="nav-link  btn-label" href="<?php echo base_url();?>login">Masuk <i class="fas fa-sign-in-alt"></i></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="<?php echo base_url();?>register">Daftar Akun <i class="fas fa-user"></i></a>
           </li>
-        <?php } else { ?>
-          <li class="nav-item"><a class="nav-link"><?=$this->session->userdata('email')?></a></li>
-          <li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url();?>logout">Logout <i class="fas fa-sign-out-alt"></i></a>
-          </li>
-        <?php } ?>
-        </ul>
+          </ul>
+        </div>
       </div>
     </nav>

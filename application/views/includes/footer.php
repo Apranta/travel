@@ -1,12 +1,29 @@
 <!-- footer content -->
-    <footer class="pt-5 pb-3" style= "background-color: hsl(0, 0%, 87%)">
+    <footer class="pt-5 pb-3 footer  footer-dark bg-tertiary">
       <div class="container">
         <div class="row">
           <div class="col-12 col-md-4">
             <div class="pr-lg-5">
-              <h5 style="color:var(--Black);"><strong>Travel Titan</strong></h5>
+              <h1 class="heading h6 text-uppercase font-weight-700 mb-3"><strong>Travel Titan</strong></h5>
+              <p>Travel Terpercaya bla bla bla wawawawawawawawawa.</p>
             </div>
           </div>
+          <div class="col-6 col-md">
+            <h5 class="heading h6 text-uppercase font-weight-700 mb-3">Tujuan Wisata</h5>
+            <ul class="list-unstyled text-small">
+              <li><a class="text-muted" href="#">Domestik</a></li>
+              <li><a class="text-muted" href="#">Internasional</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-md">
+            <h5 class="heading h6 text-uppercase font-weight-700 mb-3">Fitur</h5>
+            <ul class="list-unstyled text-small">
+              <li><a class="text-muted" href="#">Galeri</a></li>
+              <li><a class="text-muted" href="#">Testimoni</a></li>
+              <li><a class="text-muted" href="#">Kontak Kami</a></li>
+            </ul>
+          </div>
+
           <hr>
       </div>
     </footer>
@@ -14,37 +31,5 @@
       </div>
     </div>
 
-    <!-- DataTables -->
-    <script src="<?= base_url('assets') ?>/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
-    <!-- ChartJS -->
-    <script src="<?= base_url('assets') ?>/vendors/Chart.js/dist/Chart.js"></script>
-    <!-- Bootstrap -->
-    <script src="<?= base_url('assets') ?>/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- FastClick -->
-    <script src="<?= base_url('assets') ?>/vendors/fastclick/lib/fastclick.js"></script>
-    <!-- NProgress -->
-    <script src="<?= base_url('assets') ?>/vendors/nprogress/nprogress.js"></script>
-    <!-- Chart.js -->
-    <script src="<?= base_url('assets') ?>/vendors/Chart.js/dist/Chart.min.js"></script>
-    <!-- jQuery Sparklines -->
-    <script src="<?= base_url('assets') ?>/vendors/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
-    <!-- Flot -->
-    <script src="<?= base_url('assets') ?>/vendors/Flot/jquery.flot.js"></script>
-    <script src="<?= base_url('assets') ?>/vendors/Flot/jquery.flot.pie.js"></script>
-    <script src="<?= base_url('assets') ?>/vendors/Flot/jquery.flot.time.js"></script>
-    <script src="<?= base_url('assets') ?>/vendors/Flot/jquery.flot.stack.js"></script>
-    <script src="<?= base_url('assets') ?>/vendors/Flot/jquery.flot.resize.js"></script>
-    <!-- Flot plugins -->
-    <script src="<?= base_url('assets') ?>/vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
-    <script src="<?= base_url('assets') ?>/vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
-    <script src="<?= base_url('assets') ?>/vendors/flot.curvedlines/curvedLines.js"></script>
-    <!-- DateJS -->
-    <script src="<?= base_url('assets') ?>/vendors/DateJS/build/date.js"></script>
-    <!-- bootstrap-daterangepicker -->
-    <script src="<?= base_url('assets') ?>/vendors/moment/min/moment.min.js"></script>
-    <script src="<?= base_url('assets') ?>/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
-    
-    <!-- Custom Theme Scripts -->
-    <script src="<?= base_url('assets') ?>/build/js/custom.min.js"></script>
   </body>
 </html>
