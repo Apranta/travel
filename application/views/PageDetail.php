@@ -24,7 +24,7 @@
           </div>
         </div>
       </section>
- <section class="slice slice-lg">
+ <section class="slice slice-lg " data-delimiter="1">
         <div class="container">
           <div class="mb-md text-center">
             <h3 class="heading h3">Jadwal Kegiatan Jelajah Bali 3D2N*</h3>
@@ -183,7 +183,6 @@
               </table>
             </div>
           </div>
-        </div>
         </div>
     </section>
       <section class="slice slice-lg" data-delimiter="1">
