@@ -16,7 +16,7 @@ class Home extends MY_Controller
 			'contentData' => array()
 		);
 
-		$this->load->view('Page', $pageData);
+		$this->template($pageData);
 	}
 
 	public function menu()
@@ -28,9 +28,12 @@ class Home extends MY_Controller
 
 	public function testimonial()
 	{
-		$this->data['title']	= 'Dashboard';
-		$this->data['content']	= 'dashboard';
-		$this->template($this->data, $this->module);
+		$pageData = array(
+			'title' => 'Testimonial',
+			'content' => 'Testimony',
+			'contentData' => array()
+		);
+		$this->template($pageData);
 	}
 
 	public function gallery()

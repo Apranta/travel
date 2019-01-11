@@ -76,6 +76,9 @@
               </div>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="<?php echo base_url();?>Home/testimonial">Testimoni</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="">Galeri</a>
             </li>
             <div class="dropdown-divider d-lg-none my-4"></div>
