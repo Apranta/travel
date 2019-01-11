@@ -36,6 +36,16 @@ class Home extends MY_Controller
 		$this->template($pageData);
 	}
 
+  	public function detail()
+	{
+		$pageData = array(
+			'title' => 'Detail',
+			'content' => 'PageDetail',
+			'contentData' => array()
+		);
+		$this->template($pageData);
+	}
+
 	public function gallery()
 	{
 		$this->data['title']	= 'Dashboard';

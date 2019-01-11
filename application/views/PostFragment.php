@@ -24,7 +24,7 @@
               <div class="row mb-1">
                     <div class="col">
                         <div class="card-icon-actions card-icon-actions-lg text-right">
-                            <a href="#">Lihat Selengkapnya <i class="fas fa-arrow-circle-right"></i></i></a>
+                            <a href="<?php echo base_url();?>Home/detail">Lihat Selengkapnya <i class="fas fa-arrow-circle-right"></i></i></a>
                         </div>
                     </div>
                 </div>
