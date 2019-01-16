@@ -1,4 +1,4 @@
-<section class="slice slice-lg" data-delimiter="1">
+<section class="slice slice-lg" data-delimiter="1" >
     <div style="display:flex; align-items:center;">
         <h2 style="color:var(--black); flex:1">Domestik</h2>
           <a class="btn btn-sm btn-primary" href="<?=base_url() .'search'?>">Destinasi Lainnya >></a>

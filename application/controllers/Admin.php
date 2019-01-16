@@ -46,6 +46,13 @@ class Admin extends MY_Controller
 		$this->template($this->data, $this->module);
 	}
 
+	public function tambah_paket()
+	{
+		$this->data['title']	= 'Dashboard';
+		$this->data['content']	= 'dashboard';
+		$this->template($this->data, $this->module);
+	}
+
 	public function detail_paket()
 	{
 		$this->data['title']	= 'Dashboard';
