@@ -32,21 +32,20 @@
         <input name="ktp" type="file">
         <label>Jadwal Trip</label>
         <input name="jadwal" type="date" class="required">
-        <p>(*) Mandatory</p>
     </fieldset>
  
-    <h3>Warning</h3>
+    <h3>Pembayaran</h3>
     <fieldset>
-        <legend>You are to young</legend>
+        <legend>Tata Cara Pembayaran</legend>
  
-        <p>Please go away ;-)</p>
+        <p>trf</p>
     </fieldset>
  
-    <h3>Finish</h3>
+    <h3>Konfirmasi Pembayarab</h3>
     <fieldset>
-        <legend>Terms and Conditions</legend>
- 
-        <input id="acceptTerms-2" name="acceptTerms" type="checkbox" class="required"> <label for="acceptTerms-2">I agree with the Terms and Conditions.</label>
+        <legend>Konfirmasi Pembayaran</legend>
+  <label>Upload Bukti Trf</label>
+        <input name="trf" type="file">
     </fieldset>
 </form>
 </div>
