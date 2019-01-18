@@ -16,7 +16,7 @@
                   </i>
                   </p>
                   <div class="btn-container mt-5">
-                    <a href="#" class="btn btn-lg btn-primary px-5">Pesan Sekarang</a>
+                    <a href="<?= base_url('user/reservation') ?>" class="btn btn-lg btn-primary px-5">Pesan Sekarang</a>
                   </div>
                 </div>
               </div>

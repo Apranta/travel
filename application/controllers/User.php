@@ -28,10 +28,16 @@ class User extends MY_Controller
 	public function index()
 	{
 		$this->data['title']	= 'Dashboard';
-		$this->data['content']	= 'dashboard';
-		$this->template($this->data, $this->module);
+		$this->data['content']	= 'HomePage';
+		$this->template($this->data);
 	}
 
+	public function reservation($value='')
+	{
+		$this->data['title']	= 'Reserv';
+		$this->data['content']	= 'user/reservation';
+		$this->template($this->data);
+	}
 	public function history_pemesanan()
 	{
 		$this->data['title']	= 'Dashboard';

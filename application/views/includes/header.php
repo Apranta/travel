@@ -20,7 +20,7 @@
     <!-- Theme CSS -->
     <link type="text/css" href="<?= base_url('assets/css/theme.css')?>" rel="stylesheet">
     <link type="text/css" href="<?= base_url('assets/css/styles.css')?>" rel="stylesheet">
-    <link type="text/css" href="<?= base_url('assets/css/styles.css')?>" rel="stylesheet">
+
 
     <!-- Plugin CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
@@ -28,7 +28,6 @@
     <script src="<?= base_url('assets/vendor/jquery/jquery.min.js') ?>"></script>
     <script src="<?= base_url('assets/vendor/popper/popper.min.js') ?>"></script>
     <script src="<?= base_url('assets/js/bootstrap/bootstrap.min.js') ?>"></script>
-
     <!-- FontAwesome 5 -->
     <script src="<?= base_url('assets/vendor/fontawesome/js/fontawesome-all.min.js') ?>" defer></script>
 
@@ -37,8 +36,9 @@
      <script src="<?= base_url('assets/vendor/animate/animate.min.js') ?>"></script> 
     <script src="<?= base_url('assets/vendor/bootstrap-tagsinput/bootstrap-tagsinput.min.js') ?>"></script>
     <script src="<?= base_url('assets/vendor/input-mask/input-mask.min.js') ?>"></script>
-
-    <script src="<?= base_url('assets/vendor/nouislider/js/nouislider.min.js') ?>"></script>
+      <script src="<?= base_url('assets/vendor/input-mask/input-mask.min.js') ?>"></script>
+    <script src="<?= base_url('assets/js/jquery.steps.js') ?>"></script>
+    <script src="<?= base_url('assets/js/jquery.steps.min.js') ?>"></script>
     <script src="<?= base_url('assets/vendor/textarea-autosize/textarea-autosize.min.js') ?>"></script>
     
     <!-- Core plugin JavaScript-->
