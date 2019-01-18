@@ -37,11 +37,15 @@
     <h3>Pembayaran</h3>
     <fieldset>
         <legend>Tata Cara Pembayaran</legend>
- 
-        <p>trf</p>
+        <p>Transfer Down Payment (DP) minimal 1 bulan sebelum trip berlangsung sebesar Rp 1.000.000/orang melalui nomor rekening bank</p>
+    <ul>
+        <li><img src="../assets/images/logo/bni.png" width="30%">atas nama <b>TIYAN SETIAWAN</b></li>
+             <li><img src="../assets/images/logo/mandiri.png" width="30%">atas nama <b>TIYAN SETIAWAN</b></li>
+                 <li><img src="../assets/images/logo/bca.png" width="30%">atas nama <b>TIYAN SETIAWAN</b></li>
+        </ul>
     </fieldset>
  
-    <h3>Konfirmasi Pembayarab</h3>
+    <h3>Konfirmasi Pembayaran</h3>
     <fieldset>
         <legend>Konfirmasi Pembayaran</legend>
   <label>Upload Bukti Trf</label>
