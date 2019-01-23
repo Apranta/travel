@@ -59,12 +59,12 @@
         <button class="navbar-toggler" type="button" data-action="offcanvas-open" data-target="#navbar_main" aria-controls="navbar_main" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <form class="navbar-collapse mx-auto" method="GET" action="<?=base_url() . 'search'?>">
+        <!-- <form class="navbar-collapse mx-auto" method="GET" action="<?=base_url() . 'search'?>">
         <input class="form-control mr-sm-2" type="search" name="title" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-primary my-2 my-sm-0 btn-animated btn-animated-y" type="submit">
         <span class="btn-inner--visible">Cari</span>
         <span class="btn-inner--hidden"><i class="fas fa-search"></i></span></button>
-      </form>
+      </form> -->
         <div class="navbar-collapse offcanvas-collapse" id="navbar_main">
           <ul class="navbar-nav ml-auto align-items-lg-center">
             <h6 class="dropdown-header font-weight-600 d-lg-none px-0">Menu</h6>
