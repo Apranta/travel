@@ -6,10 +6,15 @@ class Home extends MY_Controller
 	{
 		parent::__construct();
 		$this->load->helper(['string']);
+		$this->load->model(['Produk_m','Paket_m']);
 	}
 
 	public function index()
-	{
+	{	
+		$this->data['domestik'] = $this->Produk_m->get(['jenis' => 'domestic']);
+		// var_dump($this->data['domestik']);
+		// exit;
+		$this->data['internasional'] = $this->Produk_m->get(['jenis' => 'internasional']);
 		$this->data['title'] ='Halaman Utama';
 		$this->data['content'] = 'HomePage';
 		$this->template($this->data);
