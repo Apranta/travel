@@ -35,7 +35,6 @@
                                                 <td>
                                                     <?= count($this->Paket_m->get(['id_produk' => $value->id_produk])) ?>
                                                 </td>
-                                                <td class="center"> 12 Jan 2012 </td>
                                                 <td>
                                                     <div class="btn-group">
                                                         <a href="<?= base_url('admin/detail_paket/' . $value->id_produk) ?>" class="btn btn-circle btn-primary"><i class="fa fa-eye"></i> Detail</a>

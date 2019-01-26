@@ -25,19 +25,20 @@
                             <label>Jenis Paket</label>
                             <select name="jenis" class="form-control">
                                 <option value="">== silahkan pilih ==</option>
-                                <option value="domestik">Domestik</option>
+                                <option value="domestic">Domestik</option>
                                 <option value="internasional">Internasional</option>
                             </select>
                         </div>
-                    </div>
-                    <div class="col-md-6">
                         <div class="form-group">
                             <label>Deskripsi Paket</label>
-                            <textarea name="deskripsi" rows="5" class="form-control"></textarea>
+                            <textarea name="deskripsi" rows="5" class="form-control" id="editor1"></textarea>
                         </div>
+                    </div>
+                    <div class="col-md-6">
+                        
                         <div class="form-group">
                             <label>Jadwal Paket</label>
-                            <textarea name="jadwal" rows="5" class="form-control"></textarea>
+                            <textarea name="jadwal" rows="5" class="form-control" id="editor2"></textarea>
                         </div>
                     </div>
                 </div>
@@ -47,3 +48,8 @@
     	</div>
     </div>
 </div>
+
+<script>
+        CKEDITOR.replace( 'editor1' );
+        CKEDITOR.replace( 'editor2' );
+</script>

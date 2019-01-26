@@ -25,6 +25,7 @@ class Admin extends MY_Controller
 		// }
 		$this->load->model('Testimonial_m');
 		$this->load->model('Produk_m');
+		$this->load->model(['Gallery_m' , 'Paket_m']);
 	}
 
 	public function index()
@@ -42,6 +43,29 @@ class Admin extends MY_Controller
 		$this->template($this->data, $this->module);
 	}
 
+	public function tambah_jenis_paket()
+	{
+		if ($this->POST('simpan')) {
+
+			$this->Paket_m->insert([
+				'nama_paket'	=> $this->POST('nama'),
+				'deskripsi'		=> $this->POST('deskripsi'),
+				'harga'			=> $this->POST('harga'),
+				'id_produk' 		=> $this->POST('id_produk')
+			]);
+
+			// $this->upload($this->db->insert_id() ,'/assets/img/' , 'foto');
+
+			$this->flashmsg('Berhasil di tambah');
+			redirect('admin/detail_paket/'. $this->POST('id_produk'),'refresh');
+			exit;
+		}
+		$this->data['id_produk'] = $this->uri->segment(3);
+		$this->data['title']	= 'Dashboard';
+		$this->data['content']	= 'tambah_jenis';
+		$this->template($this->data, $this->module);
+	}
+
 	public function tambah_paket()
 	{
 		if ($this->POST('simpan')) {
@@ -54,7 +78,7 @@ class Admin extends MY_Controller
 				'jadwal' 		=> $this->POST('jadwal')
 			]);
 
-			$this->upload($this->db->insert_id() ,'assets/img/' , 'foto');
+			$this->upload($this->db->insert_id() ,'/assets/img/' , 'foto');
 
 			$this->flashmsg('Berhasil di tambah');
 			redirect('admin/data_paket','refresh');
@@ -67,13 +91,46 @@ class Admin extends MY_Controller
 
 	public function detail_paket()
 	{
+		$id_produk = $this->uri->segment(3);
+		$this->check_allowance(!isset($id_produk));
+		$this->data['data']		= $this->Produk_m->get_row(['id_produk' => $id_produk]);
+		$this->data['paket']	= $this->Paket_m->get(['id_produk' => $id_produk]);
+		// var_dump($this->data['data']);exit;
 		$this->data['title']	= 'Dashboard';
-		$this->data['content']	= 'dashboard';
+		$this->data['content']	= 'detail_paket';
 		$this->template($this->data, $this->module);
 	}
 
 	public function data_gallery()
 	{
+		if ($this->POST('simpan')) {
+			// var_dump($_FILES);
+			// exit;
+			// 
+					for ($i = 0; $i < count($_FILES['foto']['name']); $i++)
+					{
+						$_FILES['fotoo']['name']= $_FILES['foto']['name'][$i];
+			            $_FILES['fotoo']['type']= $_FILES['foto']['type'][$i];
+			            $_FILES['fotoo']['tmp_name']= $_FILES['foto']['tmp_name'][$i];
+			            $_FILES['fotoo']['error']= $_FILES['foto']['error'][$i];
+			            $_FILES['fotoo']['size']= $_FILES['foto']['size'][$i];
+			            
+						$ft[]= $i;
+						$this->upload($i ,'/assets/gallery/' , 'fotoo');
+					}
+			$this->Gallery_m->insert([
+				'nama'	=> $this->POST('nama'),
+				'jenis'	=> $this->POST('jenis'),
+				'image'	=> json_encode($ft),
+				'deskripsi' => $this->POST('deskripsi')
+			]);
+
+					
+
+			$this->flashmsg('Berhasil di tambah');
+			redirect('admin/data_gallery','refresh');
+			exit;
+		}	
 		$this->data['gallery'] = $this->Gallery_m->get();
 		$this->data['title']	= 'Dashboard';
 		$this->data['content']	= 'gallery';

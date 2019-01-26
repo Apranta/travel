@@ -17,8 +17,6 @@
 <script src="<?= base_url('assets/metronic') ?>/assets/global/plugins/ie8.fix.min.js"></script> 
 <![endif]-->
         <!-- BEGIN CORE PLUGINS -->
-        <script src="<?= base_url('assets/metronic') ?>/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
-        <script src="<?= base_url('assets/metronic') ?>/assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="<?= base_url('assets/metronic') ?>/assets/global/plugins/js.cookie.min.js" type="text/javascript"></script>
         <script src="<?= base_url('assets/metronic') ?>/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
         <script src="<?= base_url('assets/metronic') ?>/assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>

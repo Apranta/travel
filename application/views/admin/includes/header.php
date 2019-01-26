@@ -50,7 +50,12 @@ License: You must have a valid license purchased only from themeforest(the above
         <link href="<?= base_url('assets/metronic') ?>/assets/layouts/layout6/css/layout.min.css" rel="stylesheet" type="text/css" />
         <link href="<?= base_url('assets/metronic') ?>/assets/layouts/layout6/css/custom.min.css" rel="stylesheet" type="text/css" />
         <!-- END THEME LAYOUT STYLES -->
-        <link rel="shortcut icon" href="favicon.ico" /> </head>
+        <link rel="shortcut icon" href="favicon.ico" />
+        
+        <script src="<?= base_url('assets/metronic') ?>/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+        <script src="<?= base_url('assets/metronic') ?>/assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="<?= base_url('assets/ckeditor') ?>/ckeditor.js" type="text/javascript"></script>
+    </head>
     <!-- END HEAD -->
 
     <body class="page-md">
