@@ -10,13 +10,9 @@ class Home extends MY_Controller
 
 	public function index()
 	{
-		$pageData = array(
-			'title' => 'Halaman Utama',
-			'content' => 'HomePage',
-			'contentData' => array()
-		);
-
-		$this->template($pageData);
+		$this->data['title'] ='Halaman Utama';
+		$this->data['content'] = 'HomePage';
+		$this->template($this->data);
 	}
 
 	public function menu()
