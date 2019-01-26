@@ -23,6 +23,8 @@ class Admin extends MY_Controller
 		// 	$this->flashmsg('Anda harus login sebagai admin untuk mengakses halaman tersebut', 'danger');
 		// 	redirect('login');
 		// }
+		$this->load->model('Testimonial_m');
+		$this->load->model('Produk_m');
 	}
 
 	public function index()
@@ -32,24 +34,34 @@ class Admin extends MY_Controller
 		$this->template($this->data, $this->module);
 	}
 
-	public function data_menu()
-	{
-		$this->data['title']	= 'Dashboard';
-		$this->data['content']	= 'menu';
-		$this->template($this->data, $this->module);
-	}
-
 	public function data_paket()
 	{
+		$this->data['data']	= $this->Produk_m->get();
 		$this->data['title']	= 'Dashboard';
-		$this->data['content']	= 'dashboard';
+		$this->data['content']	= 'data_produk';
 		$this->template($this->data, $this->module);
 	}
 
 	public function tambah_paket()
 	{
+		if ($this->POST('simpan')) {
+
+			$this->Produk_m->insert([
+				'nama_produk'	=> $this->POST('nama'),
+				'deskripsi'		=> $this->POST('deskripsi'),
+				'stok'			=> $this->POST('stok'),
+				'jenis'			=> $this->POST('jenis'),
+				'jadwal' 		=> $this->POST('jadwal')
+			]);
+
+			$this->upload($this->db->insert_id() ,'assets/img/' , 'foto');
+
+			$this->flashmsg('Berhasil di tambah');
+			redirect('admin/data_paket','refresh');
+			exit;
+		}
 		$this->data['title']	= 'Dashboard';
-		$this->data['content']	= 'dashboard';
+		$this->data['content']	= 'tambah_paket';
 		$this->template($this->data, $this->module);
 	}
 
@@ -62,15 +74,17 @@ class Admin extends MY_Controller
 
 	public function data_gallery()
 	{
+		$this->data['gallery'] = $this->Gallery_m->get();
 		$this->data['title']	= 'Dashboard';
-		$this->data['content']	= 'dashboard';
+		$this->data['content']	= 'gallery';
 		$this->template($this->data, $this->module);
 	}
 
 	public function data_testimonial()
 	{
+		$this->data['testimoni'] = $this->Testimonial_m->get();
 		$this->data['title']	= 'Dashboard';
-		$this->data['content']	= 'dashboard';
+		$this->data['content']	= 'testimoni';
 		$this->template($this->data, $this->module);
 	}
 
