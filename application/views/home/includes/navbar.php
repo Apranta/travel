@@ -7,19 +7,19 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Home
+              <a class="nav-link" href="<?= base_url('home') ?>">Home
                 <span class="sr-only">(current)</span>
               </a>
             </li>
+            <?php if ($this->session->userdata('username')): ?>
+              <li class="nav-item">
+                <a class="nav-link" href="<?= base_url('logout') ?>"><?= $this->session->userdata('username') ?> , Logout</a>
+              </li>
+            <?php else : ?>
             <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
+              <a class="nav-link" href="<?= base_url('login') ?>">Login</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Services</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
-            </li>
+          <?php endif; ?>
           </ul>
         </div>
       </div>

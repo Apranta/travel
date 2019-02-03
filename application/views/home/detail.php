@@ -37,7 +37,7 @@
             <div class="btn-group" style="float:right !important;">
                
               <a href="#" class="btn btn-primary btn-sm pull-right"  >detail</a>
-              <a href="#" class="btn btn-success btn-sm">Pesan</a>
+              <a href="<?= base_url('home/pemesanan?id_produk='. $value->id_produk .'&id_paket='.$value->id_paket ) ?>" class="btn btn-success btn-sm">Pesan</a>
             </div>
           </div>
         </div>

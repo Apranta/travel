@@ -167,6 +167,14 @@ class MY_Model extends CI_Model
 		return $this->db->get($this->data['table_name'])->result();
 	}
 
+	public function getDataJoinRow($tables, $jcond)
+	{
+		$this->db->select('*');
+		for ($i = 0; $i < count($tables); $i++)
+			$this->db->join($tables[$i], $jcond[$i]);
+		return $this->db->get($this->data['table_name'])->row();
+	}
+
 	public function getJSON($url)
 	{
 		$content = file_get_contents($url);

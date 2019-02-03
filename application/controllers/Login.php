@@ -10,6 +10,7 @@ class Login extends MY_Controller
 	    parent::__construct();	
 	    $username 	= $this->session->userdata('username');
 	    $id_role	= $this->session->userdata('id_role');
+	    // var_dump($username);exit;
 		if (isset($username, $id_role))
 		{
 			switch ($id_role) 
@@ -49,9 +50,10 @@ class Login extends MY_Controller
 			];
 
 			$result = $this->User_m->login($this->data);
+			// var_dump($result);exit;
 			if (!isset($result)) 
 			{
-				$this->flashmsg('Username atau password salah','danger');
+				$this->flashmsg('Username atau password salah atau anda belum mengkonfirmasi email pendaftaran','danger');
 			}
 			redirect('login');
 			exit;
@@ -85,8 +87,40 @@ class Login extends MY_Controller
 			];
 
 			$this->User_m->insert($this->data['pengguna']);
-			$this->flashmsg('Pendaftaran berhasil. Silahkan login');
+			$this->sendMail($this->POST('email'), 'Account Konfirmasi Titan Tour Travel', 'Pendaftaran akun pada Website Titan Tour Travel telah berhasil. Silahkan Konfirmasi Akun anda <a href="'. base_url('login/konfirmasi/').'/'.md5($this->POST('username')).'"> Disini </a></b>.');
+			$this->flashmsg('Pendaftaran berhasil. Silahkan Konfirmasi untuk mengaktifkan akun anda');
 			redirect('login');
 		}
 	}
+
+	private function sendMail($address, $subject, $body)
+    {
+        $this->load->library('CI_PHPMailer/ci_phpmailer');
+        try 
+        {
+            $this->ci_phpmailer->setServer('smtp.gmail.com');
+            $this->ci_phpmailer->setAuth('testdevsmail@gmail.com', '4kuGanteng');
+            $this->ci_phpmailer->setAlias('no-reply@titantourtravel.com', 'No Reply');
+            $this->ci_phpmailer->sendMessage($address, $subject, $body);    
+        } 
+        catch (Exception $e)
+        {
+            $this->ci_phpmailer->displayError();
+        }
+    }
+
+    public function konfirmasi()
+    {
+		$this->load->model('User_m');
+    	$this->data['username'] = $this->uri->segment(3);
+    	$this->check_allowance(!isset($this->data['username']));
+    	if ($this->User_m->konfirmasi($this->data['username']) == true) {
+    		$this->flashmsg('Konfirmasi berhasil. Silahkan Login akun anda');
+			redirect('login');
+			exit;
+    	}
+    	$this->flashmsg('Konfirmasi gagal. akun anda tidak ditemukan');
+		redirect('login');
+		exit;
+    }
 }

@@ -35,11 +35,11 @@ License: You must have a valid license purchased only from themeforest(the above
         <!-- Bootstrap core CSS -->
         <link href="<?= base_url('assets/home/') ?>/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-        <!-- Custom styles for this template -->
+        <script src="<?= base_url('assets/home/') ?>/vendor/jquery/jquery.min.js"></script>
         <link href="<?= base_url('assets/home/') ?>/css/small-business.css" rel="stylesheet">
         <link href="<?= base_url('assets/home/') ?>/css/2-col-portfolio.css" rel="stylesheet">
-        <script src="<?= base_url('assets/home/') ?>/vendor/jquery/jquery.min.js"></script>
         <script src="<?= base_url('assets/home/') ?>/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- <script src="<?= base_url('assets/home/') ?>/vendor/bootstrap/js/bootstrap.min.js"></script> -->
 
     </head>
     <!-- END HEAD -->

@@ -9,19 +9,32 @@ class User_m extends MY_Model
 		$this->data['primary_key'] = 'id_user';
 	}
 
-	public function login($username, $password)
+	public function login($data)
 	{
-		$user = $this->get_row(['username' => $username, 'password' => $password]);
+		$user = $this->get_row(['username' => $data['username'], 'password' => $data['password'] , 'confirmed' => 'confirmed']);
 		
 		if ($user)
 		{
 			$this->session->set_userdata([
+				'id_user'	=> $user->id_user,
 				'username'		=> $user->username,
-				'role'	=> $user->role
+				'id_role'	=> $user->id_role
 			]);
 		}
 
 		return $user;
+	}
+
+	public function konfirmasi($username)
+	{
+		$user = $this->get(['confirmed' => 'waiting']);
+		foreach ($user as $u) {
+			if (md5($u->username) == $username) {
+				$this->update($u->id_user , ['confirmed' => 'confirmed']);
+				return true;
+			}
+		}
+		return false;
 	}
 }
 

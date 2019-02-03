@@ -61,6 +61,7 @@ License: You must have a valid license purchased only from themeforest(the above
             <!-- BEGIN LOGIN FORM -->
             <form class="login-form" action="<?= base_url('login') ?>" method="post">
                 <h3 class="form-title">Login to your account</h3>
+                <?= $this->session->flashdata('msg') ?>
                 <div class="alert alert-danger display-hide">
                     <button class="close" data-close="alert"></button>
                     <span> Enter any username and password. </span>
