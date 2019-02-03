@@ -15,11 +15,11 @@ class Login extends MY_Controller
 			switch ($id_role) 
 			{
 				case 1:
-					redirect('pemilik');
+					redirect('admin');
 					break;
 
 				case 2:
-					redirect('admin');
+					redirect('home');
 					break;
 
 				default:
@@ -35,8 +35,8 @@ class Login extends MY_Controller
   	{
   		if ($this->POST('login-submit'))
 		{
-			$this->load->model('pengguna_m');
-			if (!$this->pengguna_m->required_input(['username','password'])) 
+			$this->load->model('User_m');
+			if (!$this->User_m->required_input(['username','password'])) 
 			{
 				$this->flashmsg('Data harus lengkap','warning');
 				redirect('login');
@@ -48,7 +48,7 @@ class Login extends MY_Controller
     			'password'	=> md5($this->POST('password'))
 			];
 
-			$result = $this->pengguna_m->login($this->data);
+			$result = $this->User_m->login($this->data);
 			if (!isset($result)) 
 			{
 				$this->flashmsg('Username atau password salah','danger');
@@ -65,7 +65,7 @@ class Login extends MY_Controller
 	{
 		if ($this->POST('register-submit'))
 		{
-			$this->load->model('pengguna_m');
+			$this->load->model('User_m');
 			$password = $this->POST('password');
 			$rpassword = $this->POST('rpassword');
 			if ($password !== $rpassword)
@@ -80,11 +80,11 @@ class Login extends MY_Controller
 				'nama'		=> $this->POST('nama'),
 				'email'		=> $this->POST('email'),
 				'kontak'	=> $this->POST('kontak'),
-				'id_role'	=> $this->POST('id_role'),
+				'id_role'	=> 2,
 				'alamat'	=> $this->POST('alamat')
 			];
 
-			$this->pengguna_m->insert($this->data['pengguna']);
+			$this->User_m->insert($this->data['pengguna']);
 			$this->flashmsg('Pendaftaran berhasil. Silahkan login');
 			redirect('login');
 		}
