@@ -1,3 +1,4 @@
+
 <div class="page-sidebar-wrapper">
                     <!-- BEGIN SIDEBAR -->
                     <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
@@ -11,46 +12,52 @@
                         <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
                         <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
                         <ul class="page-sidebar-menu  page-header-fixed " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
-                            <li class="nav-item start active open">
-                                <a href="javascript:;" class="nav-link nav-toggle">
+                            <li class="nav-item start">
+                                <a href="<?php base_url('admin/')?>" class="nav-link nav-toggle">
                                     <i class="icon-home"></i>
                                     <span class="title">Dashboard</span>
-                                    <span class="selected"></span>
-                                    <span class="arrow open"></span>
+                                </a>
+                            </li>
+                            <li class="heading">
+                                <h3 class="uppercase">Data Perjalanan</h3>
+                            </li>
+                            <li class="nav-item  ">
+                                <a href="#" class="nav-link nav-toggle">
+                                    <i class="icon-diamond"></i>
+                                    <span class="title">Paket Perjalanan</span>
+                                    <span class="arrow"></span>
                                 </a>
                                 <ul class="sub-menu">
-                                    <li class="nav-item start active open">
-                                        <a href="index.html" class="nav-link ">
-                                            <i class="icon-bar-chart"></i>
-                                            <span class="title">Dashboard 1</span>
-                                            <span class="selected"></span>
+                                    <li class="nav-item  ">
+                                        <a href="<?= base_url('admin/data_paket')?>" class="nav-link ">
+                                            <span class="title">Lihat Perjalanan</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item  ">
+                                        <a href="<?= base_url('admin/tambah_paket')?>" class="nav-link ">
+                                            <span class="title">Tambah Perjalanan</span>
                                         </a>
                                     </li>
                                 </ul>
                             </li>
                             <li class="heading">
-                                <h3 class="uppercase">Features</h3>
+                                <h3 class="uppercase">Pemesanan</h3>
                             </li>
                             <li class="nav-item  ">
                                 <a href="javascript:;" class="nav-link nav-toggle">
                                     <i class="icon-diamond"></i>
-                                    <span class="title">UI Features</span>
+                                    <span class="title">Data Pemesanan</span>
                                     <span class="arrow"></span>
                                 </a>
                                 <ul class="sub-menu">
                                     <li class="nav-item  ">
-                                        <a href="ui_metronic_grid.html" class="nav-link ">
-                                            <span class="title">Metronic Grid System</span>
+                                        <a href="<?= base_url('admin/data_pemesanan')?>" class="nav-link ">
+                                            <span class="title">Data Pemesanan</span>
                                         </a>
                                     </li>
                                     <li class="nav-item  ">
-                                        <a href="ui_colors.html" class="nav-link ">
-                                            <span class="title">Color Library</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item  ">
-                                        <a href="ui_general.html" class="nav-link ">
-                                            <span class="title">General Components</span>
+                                        <a href="<?= base_url('admin/history_pembayaran')?>" class="nav-link ">
+                                            <span class="title">Data Pembayaran</span>
                                         </a>
                                     </li>
                                 </ul>

@@ -65,7 +65,7 @@ class Home extends MY_Controller
 			$dat = [
 				'order_id'		=> $this->__generate_random_id(),
 				'customer_id'	=> $this->session->userdata('id_user'),
-				'order_date'	=> date("Y-m-d"),
+				'order_date'	=> $this->POST('date'),
 				'id_paket'		=> $this->POST('id_paket'),
 				'qty'			=> $this->POST('jumlah'),
 				'total'			=> $this->POST('total')
