@@ -17,7 +17,8 @@
                                                 <div class="tab-content">
                                                     <!-- PERSONAL INFO TAB -->
                                                     <div class="tab-pane active" id="tab_1_1">
-                                                        <form role="form" action="#">
+                                                        <!-- <form role="form" action="#"> -->
+                                                            <?= form_open('user/profil',['role' => 'form'] ); ?>
                                                             <div class="form-group">
                                                                 <label class="control-label">Nama</label>
                                                                 <input type="text" class="form-control" name="nama" placeholder="<?=$data->nama ?>" /> </div>

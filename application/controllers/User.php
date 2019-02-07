@@ -8,7 +8,7 @@ class User extends MY_Controller
 		$this->module = 'user';
 		$this->load->model(['Paket_m','Testimonial_m','User_m']);
 
-		// $this->data['id_pengguna'] 	= $this->session->userdata('id_pengguna');
+		$this->data['id_user'] 	= 1;
 		// $this->data['username'] 	= $this->session->userdata('username');
 	 //    $this->data['id_role']		= $this->session->userdata('id_role');
 		// if (!isset($this->data['id_pengguna'], $this->data['username'], $this->data['id_role']))
@@ -62,7 +62,7 @@ class User extends MY_Controller
 	public function profil()
 	{
 		if ($this->POST('simpan')) {
-			$this->User_m->update('1',[
+			$this->User_m->update($this->data['id_user'],[
 				'nama'		=> $this->POST('nama'),
 				'kontak'		=> $this->POST('kontak'),
 				'alamat'		=> $this->POST('alamat'),
