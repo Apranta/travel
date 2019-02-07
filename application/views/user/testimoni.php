@@ -9,6 +9,15 @@
     			<div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
+                            <label>Perjalanan</label>
+                            <select name="id_order" class="form-control">
+                                <option value="">== Silahkan Pilih ==</option>
+                                <?php foreach ($this->Order_m->get(['customer_id' => 1]) as $value): ?>
+                                <option value="<?= $value->order_id ?>"><?= $this->Produk_m->get_row(['id_produk' => $this->Paket_m->get_row(['id_paket' => $value->id_paket])->id_produk])->nama_produk ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <label>Testimoni</label>
                             <textarea name="testimoni" rows="5" class="form-control" id="editor1"></textarea>
                         </div>
@@ -28,7 +37,10 @@
                                             <?php $i=0; foreach ($data as $value): ?>
                                             <tr class="odd gradeX">
                                                 <td><?= ++$i ?></td>
-                                                <td> <?= ++$i ?> </td>
+                                                <td> <?php
+                                                    $order = $this->Order_m->get_row(['order_id' => $value->id_order]);
+                                                    $nama = $this->Produk_m->get_row(['id_produk' => $this->Paket_m->get_row(['id_paket' => $order->id_paket])->id_produk])->nama_produk;
+                                                    echo $nama; ?> </td>
                                                 <td><?= $value->testimonial ?></td>
                                             </tr>    
                                             <?php endforeach ?>

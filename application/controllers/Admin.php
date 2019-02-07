@@ -158,8 +158,15 @@ class Admin extends MY_Controller
 
 	public function pemesanan_detail()
 	{
+		$this->load->model('Order_m');
+		$this->load->model('User_m');
+		$this->load->model('Produk_m');
+		$this->load->model('Pembayaran_m');
+		$this->data['id']		= $this->uri->segment(3);
+		$this->check_allowance(!isset($this->data['id']));
+		$this->data['data']		= $this->Order_m->get_row(['order_id' => $this->data['id']]);
 		$this->data['title']	= 'Dashboard';
-		$this->data['content']	= 'dashboard';
+		$this->data['content']	= 'detail_pesanan';
 		$this->template($this->data, $this->module);
 	}
 

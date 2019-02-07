@@ -21,9 +21,9 @@
                                                             <?= form_open('user/profil',['role' => 'form'] ); ?>
                                                             <div class="form-group">
                                                                 <label class="control-label">Nama</label>
-                                                                <input type="text" class="form-control" name="nama" placeholder="<?=$data->nama ?>" /> </div>
+                                                                <input type="text" class="form-control" name="nama" value="<?=$data->nama ?>" /> </div>
                                                                 <label class="control-label">Nomor Telepon</label>
-                                                                <input type="text" name="kontak" class="form-control" placeholder="<?=$data->kontak ?>" /> </div>
+                                                                <input type="text" name="kontak" class="form-control" value="<?=$data->kontak ?>" /> </div>
                                                             <div class="form-group">
                                                                 <label class="control-label">Alamat</label>
                                                                 <textarea class="form-control" rows="3" name="alamat"><?=$data->alamat ?></textarea>
