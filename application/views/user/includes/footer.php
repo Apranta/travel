@@ -1,232 +1,79 @@
-        </div>
-        <!-- end:: Body -->
-        <!-- begin::Footer -->
-        <footer class="m-grid__item   m-footer ">
-            <div class="m-container m-container--fluid m-container--full-height m-page__container">
-                <div class="m-stack m-stack--flex-tablet-and-mobile m-stack--ver m-stack--desktop">
-                    <div class="m-stack__item m-stack__item--left m-stack__item--middle m-stack__item--last">
-                        <span class="m-footer__copyright">
-                            2017 &copy; Metronic theme by
-                            <a href="https://keenthemes.com" class="m-link">
-                                Keenthemes
-                            </a>
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!-- end::Footer -->
-    </div>
-    <!-- end:: Page -->
-    <!-- begin::Quick Sidebar -->
-    <div id="m_quick_sidebar" class="m-quick-sidebar m-quick-sidebar--tabbed m-quick-sidebar--skin-light">
-        <div class="m-quick-sidebar__content m--hide">
-            <span id="m_quick_sidebar_close" class="m-quick-sidebar__close">
-                <i class="la la-close"></i>
-            </span>
-            <ul id="m_quick_sidebar_tabs" class="nav nav-tabs m-tabs m-tabs-line m-tabs-line--brand" role="tablist">
-                <li class="nav-item m-tabs__item">
-                    <a class="nav-link m-tabs__link active" data-toggle="tab" href="#m_quick_sidebar_tabs_messenger" role="tab">
-                        Messages
-                    </a>
-                </li>
-            </ul>
-            <div class="tab-content">
-                <div class="tab-pane active" id="m_quick_sidebar_tabs_messenger" role="tabpanel">
-                    <div class="m-messenger m-messenger--message-arrow m-messenger--skin-light">
-                        <div class="m-messenger__messages m-scrollable">
-                            <div class="m-messenger__wrapper">
-                                <div class="m-messenger__message m-messenger__message--in">
-                                    <div class="m-messenger__message-pic">
-                                        <img src="assets/app/media/img//users/user3.jpg" alt="" />
-                                    </div>
-                                    <div class="m-messenger__message-body">
-                                        <div class="m-messenger__message-arrow"></div>
-                                        <div class="m-messenger__message-content">
-                                            <div class="m-messenger__message-username">
-                                                Megan wrote
-                                            </div>
-                                            <div class="m-messenger__message-text">
-                                                Hi Bob. What time will be the meeting ?
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="m-messenger__wrapper">
-                                <div class="m-messenger__message m-messenger__message--out">
-                                    <div class="m-messenger__message-body">
-                                        <div class="m-messenger__message-arrow"></div>
-                                        <div class="m-messenger__message-content">
-                                            <div class="m-messenger__message-text">
-                                                Hi Megan. It's at 2.30PM
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="m-messenger__wrapper">
-                                <div class="m-messenger__message m-messenger__message--in">
-                                    <div class="m-messenger__message-pic">
-                                        <img src="assets/app/media/img//users/user3.jpg" alt="" />
-                                    </div>
-                                    <div class="m-messenger__message-body">
-                                        <div class="m-messenger__message-arrow"></div>
-                                        <div class="m-messenger__message-content">
-                                            <div class="m-messenger__message-username">
-                                                Megan wrote
-                                            </div>
-                                            <div class="m-messenger__message-text">
-                                                Will the development team be joining ?
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="m-messenger__wrapper">
-                                <div class="m-messenger__message m-messenger__message--out">
-                                    <div class="m-messenger__message-body">
-                                        <div class="m-messenger__message-arrow"></div>
-                                        <div class="m-messenger__message-content">
-                                            <div class="m-messenger__message-text">
-                                                Yes sure. I invited them as well
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="m-messenger__datetime">
-                                2:30PM
-                            </div>
-                            <div class="m-messenger__wrapper">
-                                <div class="m-messenger__message m-messenger__message--in">
-                                    <div class="m-messenger__message-pic">
-                                        <img src="assets/app/media/img//users/user3.jpg" alt="" />
-                                    </div>
-                                    <div class="m-messenger__message-body">
-                                        <div class="m-messenger__message-arrow"></div>
-                                        <div class="m-messenger__message-content">
-                                            <div class="m-messenger__message-username">
-                                                Megan wrote
-                                            </div>
-                                            <div class="m-messenger__message-text">
-                                                Noted. For the Coca-Cola Mobile App project as well ?
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="m-messenger__wrapper">
-                                <div class="m-messenger__message m-messenger__message--out">
-                                    <div class="m-messenger__message-body">
-                                        <div class="m-messenger__message-arrow"></div>
-                                        <div class="m-messenger__message-content">
-                                            <div class="m-messenger__message-text">
-                                                Yes, sure.
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="m-messenger__wrapper">
-                                <div class="m-messenger__message m-messenger__message--out">
-                                    <div class="m-messenger__message-body">
-                                        <div class="m-messenger__message-arrow"></div>
-                                        <div class="m-messenger__message-content">
-                                            <div class="m-messenger__message-text">
-                                                Please also prepare the quotation for the Loop CRM project as well.
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="m-messenger__datetime">
-                                3:15PM
-                            </div>
-                            <div class="m-messenger__wrapper">
-                                <div class="m-messenger__message m-messenger__message--in">
-                                    <div class="m-messenger__message-no-pic m--bg-fill-danger">
-                                        <span>
-                                            M
-                                        </span>
-                                    </div>
-                                    <div class="m-messenger__message-body">
-                                        <div class="m-messenger__message-arrow"></div>
-                                        <div class="m-messenger__message-content">
-                                            <div class="m-messenger__message-username">
-                                                Megan wrote
-                                            </div>
-                                            <div class="m-messenger__message-text">
-                                                Noted. I will prepare it.
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="m-messenger__wrapper">
-                                <div class="m-messenger__message m-messenger__message--out">
-                                    <div class="m-messenger__message-body">
-                                        <div class="m-messenger__message-arrow"></div>
-                                        <div class="m-messenger__message-content">
-                                            <div class="m-messenger__message-text">
-                                                Thanks Megan. I will see you later.
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="m-messenger__wrapper">
-                                <div class="m-messenger__message m-messenger__message--in">
-                                    <div class="m-messenger__message-pic">
-                                        <img src="assets/app/media/img//users/user3.jpg" alt="" />
-                                    </div>
-                                    <div class="m-messenger__message-body">
-                                        <div class="m-messenger__message-arrow"></div>
-                                        <div class="m-messenger__message-content">
-                                            <div class="m-messenger__message-username">
-                                                Megan wrote
-                                            </div>
-                                            <div class="m-messenger__message-text">
-                                                Sure. See you in the meeting soon.
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="m-messenger__seperator"></div>
-                        <div class="m-messenger__form">
-                            <div class="m-messenger__form-controls">
-                                <input type="text" name="" placeholder="Type here..." class="m-messenger__form-input">
-                            </div>
-                            <div class="m-messenger__form-tools">
-                                <a href="" class="m-messenger__form-attachment">
-                                    <i class="la la-paperclip"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+</div>
+<p class="copyright-v2"> 2016 &copy; Metronic Theme By
+                    <a target="_blank" href="http://keenthemes.com">Keenthemes</a> &nbsp;|&nbsp;
+                    <a href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes" title="Purchase Metronic just for 27$ and get lifetime updates for free" target="_blank">Purchase Metronic!</a>
+                </p>
+                <!-- END QUICK SIDEBAR TOGGLER -->
+                <a href="#index" class="go2top">
+                    <i class="icon-arrow-up"></i>
+                </a>
+                <!-- END FOOTER -->
             </div>
         </div>
-    </div>
-    <!-- end::Quick Sidebar -->
-    <!-- begin::Scroll Top -->
-    <div id="m_scroll_top" class="m-scroll-top">
-        <i class="la la-arrow-up"></i>
-    </div>
+        <!-- END CONTAINER -->
+        <!--[if lt IE 9]>
+<script src="<?= base_url('assets/metronic') ?>/assets/global/plugins/respond.min.js"></script>
+<script src="<?= base_url('assets/metronic') ?>/assets/global/plugins/excanvas.min.js"></script> 
+<script src="<?= base_url('assets/metronic') ?>/assets/global/plugins/ie8.fix.min.js"></script> 
+<![endif]-->
+        <!-- BEGIN CORE PLUGINS -->
+        <script src="<?= base_url('assets/metronic') ?>/assets/global/plugins/js.cookie.min.js" type="text/javascript"></script>
+        <script src="<?= base_url('assets/metronic') ?>/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+        <script src="<?= base_url('assets/metronic') ?>/assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+        <script src="<?= base_url('assets/metronic') ?>/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+        <!-- END CORE PLUGINS -->
+        <!-- BEGIN PAGE LEVEL PLUGINS -->
+        <script src="<?= base_url('assets/metronic') ?>/assets/global/plugins/moment.min.js" type="text/javascript"></script>
+        <script src="<?= base_url('assets/metronic') ?>/assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.js" type="text/javascript"></script>
+        <script src="<?= base_url('assets/metronic') ?>/assets/global/plugins/morris/morris.min.js" type="text/javascript"></script>
+        <script src="<?= base_url('assets/metronic') ?>/assets/global/plugins/morris/raphael-min.js" type="text/javascript"></script>
+        <script src="<?= base_url('assets/metronic') ?>/assets/global/plugins/counterup/jquery.waypoints.min.js" type="text/javascript"></script>
+        <script src="<?= base_url('assets/metronic') ?>/assets/global/plugins/counterup/jquery.counterup.min.js" type="text/javascript"></script>
+        <script src="<?= base_url('assets/metronic') ?>/assets/global/plugins/amcharts/amcharts/amcharts.js" type="text/javascript"></script>
+        <script src="<?= base_url('assets/metronic') ?>/assets/global/plugins/amcharts/amcharts/serial.js" type="text/javascript"></script>
+        <script src="<?= base_url('assets/metronic') ?>/assets/global/plugins/amcharts/amcharts/pie.js" type="text/javascript"></script>
+        <script src="<?= base_url('assets/metronic') ?>/assets/global/plugins/amcharts/amcharts/radar.js" type="text/javascript"></script>
+        <script src="<?= base_url('assets/metronic') ?>/assets/global/plugins/amcharts/amcharts/themes/light.js" type="text/javascript"></script>
+        <script src="<?= base_url('assets/metronic') ?>/assets/global/plugins/amcharts/amcharts/themes/patterns.js" type="text/javascript"></script>
+        <script src="<?= base_url('assets/metronic') ?>/assets/global/plugins/amcharts/amcharts/themes/chalk.js" type="text/javascript"></script>
+        <script src="<?= base_url('assets/metronic') ?>/assets/global/plugins/amcharts/ammap/ammap.js" type="text/javascript"></script>
+        <script src="<?= base_url('assets/metronic') ?>/assets/global/plugins/amcharts/ammap/maps/js/worldLow.js" type="text/javascript"></script>
+        <script src="<?= base_url('assets/metronic') ?>/assets/global/plugins/amcharts/amstockcharts/amstock.js" type="text/javascript"></script>
+        <script src="<?= base_url('assets/metronic') ?>/assets/global/plugins/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
+        <script src="<?= base_url('assets/metronic') ?>/assets/global/plugins/horizontal-timeline/horizontal-timeline.js" type="text/javascript"></script>
+        <script src="<?= base_url('assets/metronic') ?>/assets/global/plugins/flot/jquery.flot.min.js" type="text/javascript"></script>
+        <script src="<?= base_url('assets/metronic') ?>/assets/global/plugins/flot/jquery.flot.resize.min.js" type="text/javascript"></script>
+        <script src="<?= base_url('assets/metronic') ?>/assets/global/plugins/flot/jquery.flot.categories.min.js" type="text/javascript"></script>
+        <script src="<?= base_url('assets/metronic') ?>/assets/global/plugins/jquery-easypiechart/jquery.easypiechart.min.js" type="text/javascript"></script>
+        <script src="<?= base_url('assets/metronic') ?>/assets/global/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
+        <script src="<?= base_url('assets/metronic') ?>/assets/global/plugins/jqvmap/jqvmap/jquery.vmap.js" type="text/javascript"></script>
+        <script src="<?= base_url('assets/metronic') ?>/assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.russia.js" type="text/javascript"></script>
+        <script src="<?= base_url('assets/metronic') ?>/assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.world.js" type="text/javascript"></script>
+        <script src="<?= base_url('assets/metronic') ?>/assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.europe.js" type="text/javascript"></script>
+        <script src="<?= base_url('assets/metronic') ?>/assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.germany.js" type="text/javascript"></script>
+        <script src="<?= base_url('assets/metronic') ?>/assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.usa.js" type="text/javascript"></script>
+        <script src="<?= base_url('assets/metronic') ?>/assets/global/plugins/jqvmap/jqvmap/data/jquery.vmap.sampledata.js" type="text/javascript"></script>
+        <!-- END PAGE LEVEL PLUGINS -->
+        <!-- BEGIN THEME GLOBAL SCRIPTS -->
+        <script src="<?= base_url('assets/metronic') ?>/assets/global/scripts/app.min.js" type="text/javascript"></script>
+        <!-- END THEME GLOBAL SCRIPTS -->
+        <!-- BEGIN PAGE LEVEL SCRIPTS -->
+        <script src="<?= base_url('assets/metronic') ?>/assets/pages/scripts/dashboard.min.js" type="text/javascript"></script>
+        <!-- END PAGE LEVEL SCRIPTS -->
+        <!-- BEGIN THEME LAYOUT SCRIPTS -->
+        <script src="<?= base_url('assets/metronic') ?>/assets/layouts/layout6/scripts/layout.min.js" type="text/javascript"></script>
+        <script src="<?= base_url('assets/metronic') ?>/assets/layouts/global/scripts/quick-sidebar.min.js" type="text/javascript"></script>
+        <script src="<?= base_url('assets/metronic') ?>/assets/layouts/global/scripts/quick-nav.min.js" type="text/javascript"></script>
+        <!-- END THEME LAYOUT SCRIPTS -->
+        <script>
+            $(document).ready(function()
+            {
+                $('#clickmewow').click(function()
+                {
+                    $('#radio1003').attr('checked', 'checked');
+                });
+            })
+        </script>
+    </body>
 
-                    <!-- begin::Quick Nav --> 
-      <!--begin::Base Scripts -->
-                    <script src="<?= base_url('assets/metronic') ?>/assets/vendors/base/vendors.bundle.js" type="text/javascript"></script>
-                    <script src="<?= base_url('assets/metronic') ?>/assets/demo/default/base/scripts.bundle.js" type="text/javascript"></script>
-                    <!--end::Base Scripts -->   
-        <!--begin::Page Vendors -->
-                    <script src="<?= base_url('assets/metronic') ?>/assets/vendors/custom/fullcalendar/fullcalendar.bundle.js" type="text/javascript"></script>
-                    <!--end::Page Vendors -->  
-        <!--begin::Page Snippets -->
-                    <script src="<?= base_url('assets/metronic') ?>/assets/app/js/dashboard.js" type="text/javascript"></script>
-                    <!--end::Page Snippets -->
-                  </body>
-                  <!-- end::Body -->
-                </html>
+</html>
