@@ -32,12 +32,6 @@ class User extends MY_Controller
 		$this->template($this->data);
 	}
 
-	public function reservation($value='')
-	{
-		$this->data['title']	= 'Reserv';
-		$this->data['content']	= 'user/reservation';
-		$this->template($this->data);
-	}
 	public function history_pemesanan()
 	{
 		$this->data['title']	= 'Dashboard';
@@ -51,7 +45,6 @@ class User extends MY_Controller
 		$this->data['content']	= 'dashboard';
 		$this->template($this->data, $this->module);
 	}
-
 
 	public function profil()
 	{
