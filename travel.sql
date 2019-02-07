@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 08 Jan 2019 pada 20.11
+-- Waktu pembuatan: 04 Feb 2019 pada 02.39
 -- Versi server: 10.1.37-MariaDB
--- Versi PHP: 7.3.0
+-- Versi PHP: 7.3.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -46,8 +46,19 @@ CREATE TABLE `order` (
   `order_id` int(11) NOT NULL,
   `customer_id` int(11) NOT NULL,
   `order_date` date NOT NULL,
-  `payment_status` enum('paid','pending','cancel') NOT NULL
+  `payment_status` enum('paid','pending','cancel') NOT NULL DEFAULT 'pending',
+  `id_paket` int(11) NOT NULL,
+  `qty` int(11) NOT NULL,
+  `total` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `order`
+--
+
+INSERT INTO `order` (`order_id`, `customer_id`, `order_date`, `payment_status`, `id_paket`, `qty`, `total`) VALUES
+(1, 1, '2019-02-04', 'pending', 1, 3, 33333),
+(232832644, 1, '2019-02-04', 'pending', 1, 3, 33333);
 
 -- --------------------------------------------------------
 
@@ -72,22 +83,18 @@ CREATE TABLE `order_detail` (
 
 CREATE TABLE `paket` (
   `id_paket` int(11) NOT NULL,
+  `id_produk` int(11) NOT NULL,
   `nama_paket` varchar(250) NOT NULL,
   `deskripsi` text NOT NULL,
   `harga` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
-
 --
--- Struktur dari tabel `paket_detail`
+-- Dumping data untuk tabel `paket`
 --
 
-CREATE TABLE `paket_detail` (
-  `id_detail_paket` int(11) NOT NULL,
-  `id_paket` int(11) NOT NULL,
-  `id_produk` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+INSERT INTO `paket` (`id_paket`, `id_produk`, `nama_paket`, `deskripsi`, `harga`) VALUES
+(1, 1, 'asasa', 'asasasasas', 11111);
 
 -- --------------------------------------------------------
 
@@ -102,6 +109,17 @@ CREATE TABLE `pembayaran` (
   `deposit` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `pembayaran`
+--
+
+INSERT INTO `pembayaran` (`id_pembayaran`, `id_order`, `pembayaran_date`, `deposit`) VALUES
+(1, 232832644, '2019-02-03 20:19:12', 0),
+(2, 232832644, '2019-02-03 20:22:09', 0),
+(3, 232832644, '2019-02-03 20:24:10', 0),
+(4, 232832644, '2019-02-03 20:25:12', 0),
+(5, 232832644, '2019-02-03 20:25:38', 0);
+
 -- --------------------------------------------------------
 
 --
@@ -112,10 +130,17 @@ CREATE TABLE `produk` (
   `id_produk` int(11) NOT NULL,
   `nama_produk` varchar(250) NOT NULL,
   `deskripsi` text,
-  `harga` int(11) NOT NULL,
   `stok` int(11) NOT NULL,
-  `jenis` enum('domestic','internasional') NOT NULL
+  `jenis` enum('domestic','internasional') NOT NULL,
+  `jadwal` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `produk`
+--
+
+INSERT INTO `produk` (`id_produk`, `nama_produk`, `deskripsi`, `stok`, `jenis`, `jadwal`) VALUES
+(1, 'aaa', 'aaaaa', 1, '', 'aaaaaa');
 
 -- --------------------------------------------------------
 
@@ -127,6 +152,14 @@ CREATE TABLE `role` (
   `id_role` int(11) NOT NULL,
   `nama` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `role`
+--
+
+INSERT INTO `role` (`id_role`, `nama`) VALUES
+(1, 'Admin'),
+(2, 'Pengguna');
 
 -- --------------------------------------------------------
 
@@ -155,8 +188,16 @@ CREATE TABLE `user` (
   `email` varchar(150) NOT NULL,
   `kontak` varchar(12) NOT NULL,
   `id_role` tinyint(4) NOT NULL,
-  `alamat` text NOT NULL
+  `alamat` text NOT NULL,
+  `confirmed` enum('confirmed','waiting') NOT NULL DEFAULT 'waiting'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `user`
+--
+
+INSERT INTO `user` (`id_user`, `username`, `password`, `nama`, `email`, `kontak`, `id_role`, `alamat`, `confirmed`) VALUES
+(1, 'apranta', '202cb962ac59075b964b07152d234b70', 'Rezi apriliansyah', 'apranta123@gmail.com', '08981073502', 1, 'asasas', 'confirmed');
 
 --
 -- Indexes for dumped tables
@@ -173,7 +214,8 @@ ALTER TABLE `gallery`
 --
 ALTER TABLE `order`
   ADD PRIMARY KEY (`order_id`),
-  ADD KEY `customer_id` (`customer_id`);
+  ADD KEY `customer_id` (`customer_id`),
+  ADD KEY `id_paket` (`id_paket`);
 
 --
 -- Indeks untuk tabel `order_detail`
@@ -187,14 +229,7 @@ ALTER TABLE `order_detail`
 -- Indeks untuk tabel `paket`
 --
 ALTER TABLE `paket`
-  ADD PRIMARY KEY (`id_paket`);
-
---
--- Indeks untuk tabel `paket_detail`
---
-ALTER TABLE `paket_detail`
-  ADD PRIMARY KEY (`id_detail_paket`),
-  ADD KEY `id_paket` (`id_paket`),
+  ADD PRIMARY KEY (`id_paket`),
   ADD KEY `id_produk` (`id_produk`);
 
 --
@@ -243,12 +278,6 @@ ALTER TABLE `gallery`
   MODIFY `id_gallery` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `order`
---
-ALTER TABLE `order`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT untuk tabel `order_detail`
 --
 ALTER TABLE `order_detail`
@@ -258,31 +287,25 @@ ALTER TABLE `order_detail`
 -- AUTO_INCREMENT untuk tabel `paket`
 --
 ALTER TABLE `paket`
-  MODIFY `id_paket` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT untuk tabel `paket_detail`
---
-ALTER TABLE `paket_detail`
-  MODIFY `id_detail_paket` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_paket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `pembayaran`
 --
 ALTER TABLE `pembayaran`
-  MODIFY `id_pembayaran` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pembayaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `role`
 --
 ALTER TABLE `role`
-  MODIFY `id_role` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `testimonial`
@@ -294,7 +317,7 @@ ALTER TABLE `testimonial`
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
