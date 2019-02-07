@@ -41,7 +41,7 @@
        <div id="p_" class="postItem">
 
  <div style="background-image:url('<?=base_url() . 'assets/images/' . $p->nama_produk .'.jpg'?>')" class="coverImg"></div> 
-    <a href="">
+    <a href="user/reservation">
       <h5 class="postItemTitle"><?=$p->nama_produk?></h5>
     </a>
     <div style="display:flex;">
