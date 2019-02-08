@@ -5,7 +5,14 @@
 				Detail Pemesanan - 
 			</div>
 			<div class="portlet-body">
-				<button class="btn btn-success">Konfirmasi Pembayaran</button><hr>
+				<?php if ($data->payment_status == 'paid') : ?>
+					<button class="btn btn-primary">Pembayaran Sukses</button>
+				<?php elseif($data->payment_status == 'pending') : ?>
+					<button class="btn btn-success" onclick="konfirm(<?= $data->order_id ?>);">Konfirmasi Pembayaran</button>
+				<?php else : ?>
+					<button class="btn btn-danger">Pembayaran Dibatalkan</button>
+				<?php endif; ?>
+				<hr>
 				<div class="row">
 					<div class="col-md-6">
 						<table class="table table-bordered"> 
@@ -61,3 +68,20 @@
 		</div>
 	</div>
 </div>
+
+<script>
+	function konfirm(id){
+		$.ajax({
+	        url: "<?= base_url('admin/pemesanan_detail') ?>",
+	        type: 'POST',
+	        data: {
+	            id: id,
+	            konfirm: true
+	        },
+	        success: function() {
+	            // swal("Dihapus!", "Data Telah Dihapus.", "success");
+	            location.reload();
+	        }
+	    });
+	}
+</script>

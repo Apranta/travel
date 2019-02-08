@@ -47,7 +47,7 @@
                                                 <td>
                                                     <div class="btn-group">
                                                         <a href="<?= base_url('admin/pemesanan_detail/' . $value->order_id) ?>" class="btn btn-circle btn-primary"><i class="fa fa-eye"></i> Detail</a>
-                                                        <button class="btn btn-circle btn-danger">Hapus</button>
+                                                       
                                                     </div>
                                                 </td>
                                             </tr>    

@@ -38,7 +38,7 @@
                                                 <td>
                                                     <div class="btn-group">
                                                         <a href="<?= base_url('admin/detail_paket/' . $value->id_produk) ?>" class="btn btn-circle btn-primary"><i class="fa fa-eye"></i> Detail</a>
-                                                        <button class="btn btn-circle btn-danger">Hapus</button>
+                                                        <button onclick="_delete(<?= $value->id_produk ?>)" class="btn btn-circle btn-danger">Hapus</button>
                                                     </div>
                                                 </td>
                                             </tr>    
@@ -50,3 +50,20 @@
                             </div>
     </div>
 </div>
+
+<script>
+    function _delete(id_produk){
+        $.ajax({
+                    url: "<?= base_url('admin/data_paket') ?>",
+                    type: 'POST',
+                    data: {
+                        id: id_produk,
+                        delete: true
+                    },
+                    success: function() {
+                        // swal("Dihapus!", "Data Telah Dihapus.", "success");
+                        location.reload();
+                    }
+                });
+    }
+</script>

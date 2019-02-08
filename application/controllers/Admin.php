@@ -25,7 +25,7 @@ class Admin extends MY_Controller
 		}
 		$this->load->model('Testimonial_m');
 		$this->load->model('Produk_m');
-		$this->load->model(['Gallery_m' , 'Paket_m']);
+		$this->load->model(['Gallery_m' , 'Paket_m','Order_m']);
 	}
 
 	public function index()
@@ -37,6 +37,10 @@ class Admin extends MY_Controller
 
 	public function data_paket()
 	{
+		if ($this->POST('delete')) {
+			$this->Produk_m->delete($this->POST('id'));
+			exit;
+		}
 		$this->data['data']	= $this->Produk_m->get();
 		$this->data['title']	= 'Dashboard';
 		$this->data['content']	= 'data_produk';
@@ -162,6 +166,10 @@ class Admin extends MY_Controller
 		$this->load->model('User_m');
 		$this->load->model('Produk_m');
 		$this->load->model('Pembayaran_m');
+		if ($this->POST('konfirm')) {
+			$this->Order_m->update($this->POST('id') , ['payment_status' => 'paid']);
+			$this->Pembayaran_m->update_where(['id_order' => $this->POST('id')] , ['status' => 'konfirm']);
+		}
 		$this->data['id']		= $this->uri->segment(3);
 		$this->check_allowance(!isset($this->data['id']));
 		$this->data['data']		= $this->Order_m->get_row(['order_id' => $this->data['id']]);
