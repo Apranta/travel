@@ -25,7 +25,8 @@ class Admin extends MY_Controller
 		}
 		$this->load->model('Testimonial_m');
 		$this->load->model('Produk_m');
-		$this->load->model(['Gallery_m' , 'Paket_m','Order_m']);
+		$this->load->model(['Gallery_m' , 'Paket_m','Order_m' , 'User_m']);
+	    $this->data['user']		= $this->User_m->get(['id_role' => 2]);
 	}
 
 	public function index()
@@ -118,9 +119,10 @@ class Admin extends MY_Controller
 			            $_FILES['fotoo']['tmp_name']= $_FILES['foto']['tmp_name'][$i];
 			            $_FILES['fotoo']['error']= $_FILES['foto']['error'][$i];
 			            $_FILES['fotoo']['size']= $_FILES['foto']['size'][$i];
-			            
-						$ft[]= $i;
-						$this->upload($i ,'/assets/gallery/' , 'fotoo');
+			            $f = str_replace(" ","", $_FILES['fotoo']['name']);
+			            $fto = explode(".", $f);
+						$ft[]= $fto[0];
+						$this->upload($fto[0] ,'/assets/gallery/' , 'fotoo');
 					}
 			$this->Gallery_m->insert([
 				'nama'	=> $this->POST('nama'),

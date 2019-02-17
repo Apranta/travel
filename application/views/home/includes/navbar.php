@@ -6,14 +6,30 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
+            <li class="nav-item">
               <a class="nav-link" href="<?= base_url('home') ?>">Home
                 <span class="sr-only">(current)</span>
               </a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="<?= base_url('home/gallery') ?>">Gallery
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="<?= base_url('home/testimoni') ?>">Testimoni
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
             <?php if ($this->session->userdata('username')): ?>
+
               <li class="nav-item">
-                <a class="nav-link" href="<?= base_url('logout') ?>"><?= $this->session->userdata('username') ?> , Logout</a>
+                <a class="nav-link" href="<?= base_url('User') ?>">Profile
+                  <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="<?= base_url('logout') ?>"> Logout</a>
               </li>
             <?php else : ?>
             <li class="nav-item">

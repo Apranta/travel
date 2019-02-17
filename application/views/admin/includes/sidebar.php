@@ -62,6 +62,18 @@
                                     </li>
                                 </ul>
                             </li>
+                            <li class="nav-item  ">
+                                <a href="<?= base_url('admin/data_gallery') ?>">
+                                    <i class="icon-diamond"></i>
+                                    <span class="title">Data Gallery</span>
+                                </a>
+                            </li>
+                            <li class="nav-item  ">
+                                <a href="<?= base_url('admin/data_gallery') ?>">
+                                    <i class="icon-diamond"></i>
+                                    <span class="title">Data Gallery</span>
+                                </a>
+                            </li>
                         </ul>
                         <!-- END SIDEBAR MENU -->
                     </div>

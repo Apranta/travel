@@ -30,16 +30,15 @@
                         <div class="page-quick-sidebar-list" style="position: relative; overflow: hidden; width: auto; height: 551px;"><div class="page-quick-sidebar-chat-users" data-rail-color="#ddd" data-wrapper-class="page-quick-sidebar-list" data-height="551" data-initialized="1" style="overflow: hidden; width: auto; height: 551px;">
                             <h3 class="list-heading">User</h3>
                             <ul class="media-list list-items">
+                                <?php foreach($user as $data ) : ?>
                                 <li class="media">
-                                    <div class="media-status">
-                                        <span class="badge badge-success">8</span>
-                                    </div>
                                     <img class="media-object" src="<?= base_url('assets/metronic') ?>/assets/layouts/layout/img/avatar3.jpg" alt="<?= base_url('assets/metronic') ?>.">
                                     <div class="media-body">
-                                        <h4 class="media-heading">Bob Nilson</h4>
-                                        <div class="media-heading-sub"> Project Manager </div>
+                                        <h4 class="media-heading"><?= $data->nama ?></h4>
+                                        <!-- <div class="media-heading-sub"> Project Manager </div> -->
                                     </div>
                                 </li>
+                                <?php endforeach; ?>
                             </ul>
                         </div><div class="slimScrollBar" style="background: rgb(187, 187, 187); width: 7px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 347.767px;"></div><div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(221, 221, 221); opacity: 0.2; z-index: 90; right: 1px;"></div></div>
                         <div class="page-quick-sidebar-item">

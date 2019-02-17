@@ -8,8 +8,8 @@ class Home extends MY_Controller
 		$this->module = 'home';
 		$this->load->model('Testimonial_m');
 		$this->load->model('Produk_m');
-		$this->load->model(['Gallery_m' , 'Paket_m']);
-		$this->session->unset_userdata('id_order');
+		$this->load->model(['Gallery_m' , 'Paket_m' , 'Order_m' , 'User_m']);
+		// $this->session->unset_userdata('id_order');
 	}
 
 	public function index()
@@ -17,6 +17,34 @@ class Home extends MY_Controller
 		$this->data['data']	= $this->Produk_m->get();
 		$this->data['title']	= 'Dashboard';
 		$this->data['content']	= 'dashboard';
+		$this->template($this->data, $this->module);
+	}
+
+	public function gallery()
+	{
+		$this->data['data']	= $this->Gallery_m->get();
+		$this->data['title']	= 'Dashboard';
+		$this->data['content']	= 'gallery';
+		$this->template($this->data, $this->module);
+	}
+
+	public function detail_gallery()
+	{
+		$this->data['id']	= $this->uri->segment(3);
+		$this->check_allowance(!isset($this->data['id']));
+		$this->data['data']	= $this->Gallery_m->get_row(['id_gallery' => $this->data['id']]);
+		$this->data['title']	= 'Dashboard';
+		$this->data['content']	= 'detail_gallery';
+		$this->template($this->data, $this->module);
+	}
+
+	public function testimoni()
+	{
+		// echo json_encode($this->Order_m->getDataJoinRow(['paket'] , ['id_paket']));
+		// exit;
+		$this->data['data']	= $this->Testimonial_m->get();
+		$this->data['title']	= 'Dashboard';
+		$this->data['content']	= 'testimoni';
 		$this->template($this->data, $this->module);
 	}
 
@@ -57,11 +85,11 @@ class Home extends MY_Controller
 		$this->load->model('Order_m');
 		if ($this->POST('submit')) {
 			$username = $this->session->userdata('username');
-			if(!isset($username)){
-				redirect('login','refresh');
-				$this->flashmsg('Anda Harus Login Terlebih Dahulu untuk melakukan pemesanan');
-				exit;
-			}
+			// echo $username;
+			// exit;
+			$this->check_allowance(!isset($username));
+			
+			$this->session->unset_userdata('id_order');
 			$dat = [
 				'order_id'		=> $this->__generate_random_id(),
 				'customer_id'	=> $this->session->userdata('id_user'),
