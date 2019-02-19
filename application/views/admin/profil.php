@@ -21,7 +21,7 @@
                                                     <!-- PERSONAL INFO TAB -->
                                                     <div class="tab-pane active" id="tab_1_1">
                                                         <!-- <form role="form" action="#"> -->
-                                                            <?= form_open('user/profil',['role' => 'form'] ); ?>
+                                                            <?= form_open('admin/profil',['role' => 'form'] ); ?>
                                                             <div class="form-group">
                                                                 <label class="control-label">Nama</label>
                                                                 <input type="text" class="form-control" name="nama" value="<?= $data->nama ?>" /> </div><div>
@@ -38,7 +38,7 @@
                                                     </div>
                                                     <div class="tab-pane" id="tab_1_2">
                                                         <!-- <form role="form" action="#"> -->
-                                                            <?= form_open('user/ganti_password',['role' => 'form'] ); ?>
+                                                            <?= form_open('admin/ganti_password',['role' => 'form'] ); ?>
                                                             <div class="form-group">
                                                                 <label class="control-label">New Password</label>
                                                                 <input type="password" class="form-control" name="password"  /> 

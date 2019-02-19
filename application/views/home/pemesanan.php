@@ -5,6 +5,7 @@
 	 		<div class="panel-heading">
 	 			<h4>Pemesanan Paket</h4>
 	 		</div>
+            <?= $this->session->flashdata('msg') ?>
 	 		<div class="panel-body">
 	 			<?= form_open('home/pesan',['class' => 'form-horizontal']); ?>
 	 			<input type="hidden" name="id_paket" value="<?= $data->id_paket ?>">

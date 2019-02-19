@@ -108,6 +108,13 @@ class Admin extends MY_Controller
 
 	public function data_gallery()
 	{
+		$action = $this->GET('action');
+		$id = $this->GET('id');
+		if ($action == 'hapus') {
+			$this->Gallery_m->delete($id);
+			redirect('admin/data-gallery','refresh');
+			exit;
+		}
 		if ($this->POST('simpan')) {
 			// var_dump($_FILES);
 			// exit;
@@ -145,6 +152,13 @@ class Admin extends MY_Controller
 
 	public function data_testimonial()
 	{
+		$action = $this->GET('action');
+		$id = $this->GET('id');
+		if ($action == 'hapus') {
+			$this->Testimonial_m->delete($id);
+			redirect('admin/data_testimonial','refresh');
+			exit;
+		}
 		$this->data['testimoni'] = $this->Testimonial_m->get();
 		$this->data['title']	= 'Dashboard';
 		$this->data['content']	= 'testimoni';
@@ -192,8 +206,36 @@ class Admin extends MY_Controller
 		$this->template($this->data, $this->module);
 	}
 
+	public function profil()
+	{
+		if ($this->POST('simpan')) {
+			$this->User_m->update($this->data['id_user'],[
+				'nama'		=> $this->POST('nama'),
+				'kontak'		=> $this->POST('kontak'),
+				'alamat'		=> $this->POST('alamat'),
+			]);
+			redirect('admin/profil','refresh');
+			exit;
+		}
+		$this->data['data'] = $this->User_m->get_row(['id_user' => $this->data['id_user']]);
+		$this->data['title']	= 'Dashboard';
+		$this->data['content']	= 'profil';
+		$this->template($this->data, $this->module);
+	}
+
 	public function ganti_password()
 	{
+		if ($this->POST('simpan')) {
+			if ($this->POST('password') != $this->POST('repassword')) {
+				redirect('admin/profil','refresh');
+				exit;
+			}
+			$this->User_m->update($this->data['id_user'],[
+				'password'		=> md5($this->POST('password')),
+			]);
+			redirect('admin/profil','refresh');
+			exit;
+		}
 		$this->data['title']	= 'Dashboard';
 		$this->data['content']	= 'dashboard';
 		$this->template($this->data, $this->module);

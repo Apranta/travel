@@ -24,7 +24,7 @@
             <?php if ($this->session->userdata('username')): ?>
 
               <li class="nav-item">
-                <a class="nav-link" href="<?= base_url('User') ?>">Profile
+                <a class="nav-link" href="<?= ($this->session->userdata('id_role') == 1) ? base_url('admin') : base_url('user')  ?>">Profile
                   <span class="sr-only">(current)</span>
                 </a>
               </li>

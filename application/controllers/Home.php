@@ -84,6 +84,8 @@ class Home extends MY_Controller
 	{
 		$this->load->model('Order_m');
 		if ($this->POST('submit')) {
+			$role = $this->session->userdata('id_role');
+			$this->check_allowance($role != 2 , ['Kamu Login Bukan Sebagai User , silahkan login sebagai user', 'danger']);
 			$username = $this->session->userdata('username');
 			// echo $username;
 			// exit;

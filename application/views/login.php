@@ -21,7 +21,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
     <head>
         <meta charset="utf-8" />
-        <title>TITAN TOUR AND TRAVEL</title>
+        <title>Metronic Admin Theme #6 | User Login 1</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta content="Preview page of Metronic Admin Theme #6 for " name="description" />
@@ -38,11 +38,12 @@ License: You must have a valid license purchased only from themeforest(the above
         <link href="<?= base_url('assets/metronic') ?>/assets/global/plugins/select2/css/select2-bootstrap.min.css" rel="stylesheet" type="text/css" />
         <!-- END PAGE LEVEL PLUGINS -->
         <!-- BEGIN THEME GLOBAL STYLES -->
-        <link href="<?= base_url('assets/metronic') ?>/assets/global/css/components-md.min.css" rel="stylesheet" id="style_components" type="text/css" />
-        <link href="<?= base_url('assets/metronic') ?>/assets/global/css/plugins-md.min.css" rel="stylesheet" type="text/css" />
+        <link href="<?= base_url('assets/metronic') ?>/assets/global/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
+        <link href="<?= base_url('assets/metronic') ?>/assets/global/css/plugins.min.css" rel="stylesheet" type="text/css" />
         <!-- END THEME GLOBAL STYLES -->
         <!-- BEGIN PAGE LEVEL STYLES -->
-        <link href="<?= base_url('assets/metronic') ?>/assets/pages/css/login-3.min.css" rel="stylesheet" type="text/css" />
+        <link href="<?= base_url('assets/metronic') ?>/assets/pages/css/login.min.css" rel="stylesheet" type="text/css" />
+        <script src="<?= base_url('assets/metronic') ?>/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
         <!-- END PAGE LEVEL STYLES -->
         <!-- BEGIN THEME LAYOUT STYLES -->
         <!-- END THEME LAYOUT STYLES -->
@@ -52,43 +53,36 @@ License: You must have a valid license purchased only from themeforest(the above
     <body class=" login">
         <!-- BEGIN LOGO -->
         <div class="logo">
-            <a href="#">
+            <a href="index.html">
                 <img src="<?= base_url('assets/metronic') ?>/assets/pages/img/logo-big.png" alt="" /> </a>
         </div>
         <!-- END LOGO -->
         <!-- BEGIN LOGIN -->
         <div class="content">
             <!-- BEGIN LOGIN FORM -->
-            <form class="login-form" action="<?= base_url('login') ?>" method="post">
-                <h3 class="form-title">Login to your account</h3>
-                <!-- <?= $this->session->flashdata('msg') ?> -->
+            <?= form_open('login', ['class' => 'login-form']) ?>
+                <h3 class="form-title font-green">Sign In</h3>
                 <?= $this->session->flashdata('msg') ?>
                 <div class="form-group">
                     <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
                     <label class="control-label visible-ie8 visible-ie9">Username</label>
-                    <div class="input-icon">
-                        <i class="fa fa-user"></i>
-                        <input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Username" name="username" /> </div>
-                </div>
+                    <input class="form-control form-control-solid placeholder-no-fix" type="text" autocomplete="off" placeholder="Username" name="username" /> </div>
                 <div class="form-group">
                     <label class="control-label visible-ie8 visible-ie9">Password</label>
-                    <div class="input-icon">
-                        <i class="fa fa-lock"></i>
-                        <input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="Password" name="password" /> </div>
-                </div>
+                    <input class="form-control form-control-solid placeholder-no-fix" type="password" autocomplete="off" placeholder="Password" name="password" /> </div>
                 <div class="form-actions">
-                    <label class="rememberme mt-checkbox mt-checkbox-outline">
-                        <input type="checkbox" name="remember" value="1" /> Remember me
-                        <span></span>
-                    </label>
-                    <input type="submit" name="login-submit" class="btn green pull-right" value="Login"> 
+                    <!-- <button type="submit" class="btn green uppercase" name="login-submit">Login</button> -->
+                    <input type="submit" name="login-submit" class="btn green uppercase" value="Login">
                 </div>
                 <div class="create-account">
-                    <p> Belum Memiliki Akun ?&nbsp;
-                        <a href="javascript:;" id="register-btn"> Buat Akun </a>
+                    <p>
+                        <a href="javascript:;" id="register-btn" class="uppercase">Buat Akun</a>
                     </p>
                 </div>
             </form>
+            <!-- END LOGIN FORM -->
+            <!-- BEGIN FORGOT PASSWORD FORM -->
+        
             <!-- END FORGOT PASSWORD FORM -->
             <!-- BEGIN REGISTRATION FORM -->
             <form class="register-form" action="<?= base_url('login/register') ?>" method="post">
@@ -140,7 +134,7 @@ License: You must have a valid license purchased only from themeforest(the above
                             <input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="Re-type Your Password" name="rpassword" /> </div>
                     </div>
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label class="mt-checkbox mt-checkbox-outline">
                         <input type="checkbox" name="tnc" /> I agree to the
                         <a href="javascript:;">Terms of Service </a> &
@@ -148,21 +142,21 @@ License: You must have a valid license purchased only from themeforest(the above
                         <span></span>
                     </label>
                     <div id="register_tnc_error"> </div>
-                </div>
+                </div> -->
                 <div class="form-actions">
                     <button id="register-back-btn" type="button" class="btn grey-salsa btn-outline"> Back </button>
                     <input type="submit" id="register-submit-btn" class="btn green pull-right" value="Sign Up" name="register-submit"> 
+                </div>
             </form>
             <!-- END REGISTRATION FORM -->
         </div>
-        <!-- END LOGIN -->
+        <div class="copyright"> 2019 © Titan Tour Travel</div>
         <!--[if lt IE 9]>
 <script src="<?= base_url('assets/metronic') ?>/assets/global/plugins/respond.min.js"></script>
 <script src="<?= base_url('assets/metronic') ?>/assets/global/plugins/excanvas.min.js"></script> 
 <script src="<?= base_url('assets/metronic') ?>/assets/global/plugins/ie8.fix.min.js"></script> 
 <![endif]-->
         <!-- BEGIN CORE PLUGINS -->
-        <script src="<?= base_url('assets/metronic') ?>/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
         <script src="<?= base_url('assets/metronic') ?>/assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="<?= base_url('assets/metronic') ?>/assets/global/plugins/js.cookie.min.js" type="text/javascript"></script>
         <script src="<?= base_url('assets/metronic') ?>/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
@@ -178,7 +172,7 @@ License: You must have a valid license purchased only from themeforest(the above
         <script src="<?= base_url('assets/metronic') ?>/assets/global/scripts/app.min.js" type="text/javascript"></script>
         <!-- END THEME GLOBAL SCRIPTS -->
         <!-- BEGIN PAGE LEVEL SCRIPTS -->
-        <script src="<?= base_url('assets/metronic') ?>/assets/pages/scripts/login.min.js" type="text/javascript"></script>
+        <!-- <script src="<?= base_url('assets/metronic') ?>/assets/pages/scripts/login.min.js" type="text/javascript"></script> -->
         <!-- END PAGE LEVEL SCRIPTS -->
         <!-- BEGIN THEME LAYOUT SCRIPTS -->
         <!-- END THEME LAYOUT SCRIPTS -->

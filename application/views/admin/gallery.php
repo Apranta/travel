@@ -62,7 +62,7 @@
                                 <?php endforeach; ?>
                             </td>
     						<td>
-								<button class="btn btn-xs btn-circle btn-primary">Detail</button>
+								<a class="btn btn-xs btn-circle btn-danger" href="<?= base_url('admin/data-gallery?action=hapus&id='. $data->id_gallery) ?>">Hapus</a>
     						</td>
     					</tr>
     						

@@ -33,6 +33,11 @@
                                             <span class="title">Lihat Riwayat</span>
                                         </a>
                                     </li>
+                                    <li class="nav-item  ">
+                                        <a href="<?= base_url('user/bukti')?>" class="nav-link ">
+                                            <span class="title">Upload Bukti Pembayaran</span>
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
                             <li class="nav-item  ">

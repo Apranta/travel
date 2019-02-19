@@ -26,7 +26,7 @@
                                     <img src="<?= base_url('assets/metronic') ?>/assets/layouts/layout5/img/avatar1.jpg" alt=""> </button>
                                 <ul class="dropdown-menu-v2" role="menu">
                                     <li>
-                                        <a href="page_user_profile_1.html">
+                                        <a href="<?= base_url('admin/profil') ?>">
                                             <i class="icon-user"></i> My Profile
                                             <span class="badge badge-danger">1</span>
                                         </a>

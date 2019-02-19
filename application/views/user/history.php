@@ -9,7 +9,7 @@
                                     <table class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_1_2">
                                         <thead>
                                             <tr>
-                                                <th> # </th>
+                                                <th> Order Id </th>
                                                 <th> Nama Pemesan</th>
                                                 <th> Paket Perjalanan</th>
                                                 <th> Tanggal Keberangkatan </th>
@@ -20,7 +20,7 @@
                                         <tbody>
                                             <?php $i=0; foreach ($data as $value): ?>
                                             <tr class="odd gradeX">
-                                                <td><?= ++$i ?></td>
+                                                <td><?= $value->order_id ?></td>
                                                 <td> <?= $this->User_m->get_row(['id_user' => $value->customer_id])->nama ?> </td>
                                                 <td> <?= $this->Produk_m->get_row(['id_produk' => $this->Paket_m->get_row(['id_paket' => $value->id_paket])->id_produk])->nama_produk ?></td>
                                                 <td><?= $value->order_date ?></td>

@@ -69,9 +69,9 @@
                                 </a>
                             </li>
                             <li class="nav-item  ">
-                                <a href="<?= base_url('admin/data_gallery') ?>">
+                                <a href="<?= base_url('admin/data_testimonial') ?>">
                                     <i class="icon-diamond"></i>
-                                    <span class="title">Data Gallery</span>
+                                    <span class="title">Data Testimoni</span>
                                 </a>
                             </li>
                         </ul>
