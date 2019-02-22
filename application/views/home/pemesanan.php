@@ -35,12 +35,12 @@
 					</div>
 				</div>
 				<hr>
-				<div class="form-group">
+				<!-- <div class="form-group">
 					<label class="control-label col-sm-2">Tanggal keberangkatan</label>
 					<div class="col-sm-10">
 						<input type="date" name="date" class="form-control" id="date">
 					</div>
-				</div>
+				</div> -->
 
 				<div class="form-group">
 					<label class="control-label col-sm-2">Total Pembayaran</label>

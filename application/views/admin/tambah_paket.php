@@ -16,10 +16,7 @@
                             <label>Nama Paket</label>
                             <input type="text" name="nama" class="form-control">
                         </div>
-                        <div class="form-group">
-                            <label>Stok Paket</label>
-                            <input type="number" name="stok" class="form-control">
-                        </div>
+                        
 
                         <div class="form-group">
                             <label>Jenis Paket</label>
@@ -39,6 +36,10 @@
                         <div class="form-group">
                             <label>Jadwal Paket</label>
                             <textarea name="jadwal" rows="5" class="form-control" id="editor2"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Tanggal Berangkat</label>
+                            <input type="date" name="tanggal" class="form-control">
                         </div>
                     </div>
                 </div>

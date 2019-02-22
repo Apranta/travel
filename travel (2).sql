@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 17 Feb 2019 pada 19.47
+-- Waktu pembuatan: 22 Feb 2019 pada 19.15
 -- Versi server: 10.1.37-MariaDB
 -- Versi PHP: 7.3.1
 
@@ -56,7 +56,6 @@ CREATE TABLE `gallery` (
 
 INSERT INTO `gallery` (`id_gallery`, `image`, `deskripsi`, `jenis`, `nama`) VALUES
 (1, '[0,1,2,3]', '<p>asasasasasa</p>', 'domestic', 'Nuansa Indah'),
-(5, '[\"BACKGROUNDBIRU\"]', '<p>s</p>', 'domestic', 's'),
 (6, '[\"01-02\",\"03-04\",\"8cb989a132391a6bfa558502f32f653c\"]', '<p>b</p>', 'internasional', 'sss');
 
 -- --------------------------------------------------------
@@ -81,6 +80,7 @@ CREATE TABLE `order` (
 
 INSERT INTO `order` (`order_id`, `customer_id`, `order_date`, `payment_status`, `id_paket`, `qty`, `total`) VALUES
 (1, 1, '2019-02-04', 'paid', 1, 3, 33333),
+(166323408, 2, '2019-02-13', 'paid', 1, 4, 44444),
 (232832644, 1, '2019-02-04', 'pending', 1, 3, 33333),
 (291763256, 2, '2019-02-14', 'pending', 1, 2, 22222),
 (534433845, 2, '2019-02-14', 'pending', 1, 2, 22222),
@@ -142,11 +142,7 @@ CREATE TABLE `pembayaran` (
 --
 
 INSERT INTO `pembayaran` (`id_pembayaran`, `id_order`, `pembayaran_date`, `deposit`, `status`) VALUES
-(1, 232832644, '2019-02-03 20:19:12', 0, 'konfirm'),
-(2, 232832644, '2019-02-03 20:22:09', 0, 'konfirm'),
-(3, 232832644, '2019-02-03 20:24:10', 0, 'konfirm'),
-(4, 232832644, '2019-02-03 20:25:12', 0, 'konfirm'),
-(5, 232832644, '2019-02-03 20:25:38', 0, 'konfirm');
+(1, 232832644, '2019-02-03 20:19:12', 0, 'konfirm');
 
 -- --------------------------------------------------------
 
@@ -158,17 +154,17 @@ CREATE TABLE `produk` (
   `id_produk` int(11) NOT NULL,
   `nama_produk` varchar(250) NOT NULL,
   `deskripsi` text,
-  `stok` int(11) NOT NULL,
   `jenis` enum('domestic','internasional') NOT NULL,
-  `jadwal` text NOT NULL
+  `jadwal` text NOT NULL,
+  `jadwal_berangkat` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `produk`
 --
 
-INSERT INTO `produk` (`id_produk`, `nama_produk`, `deskripsi`, `stok`, `jenis`, `jadwal`) VALUES
-(1, 'aaa', 'aaaaa', 1, '', 'aaaaaa');
+INSERT INTO `produk` (`id_produk`, `nama_produk`, `deskripsi`, `jenis`, `jadwal`, `jadwal_berangkat`) VALUES
+(1, 'aaa', 'aaaaa', '', 'aaaaaa', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -203,13 +199,6 @@ CREATE TABLE `testimonial` (
   `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data untuk tabel `testimonial`
---
-
-INSERT INTO `testimonial` (`id_testimonial`, `id_customer`, `id_order`, `testimonial`, `date`) VALUES
-(1, 1, 1, '<p>asasas</p>', '2019-02-18 00:29:55');
-
 -- --------------------------------------------------------
 
 --
@@ -233,8 +222,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `username`, `password`, `nama`, `email`, `kontak`, `id_role`, `alamat`, `confirmed`) VALUES
-(1, 'apranta', '202cb962ac59075b964b07152d234b70', 'Rezi apriliansyah', 'apranta123@gmail.com', '08981073502', 1, 'asasas', 'confirmed'),
-(2, 'aaa', '202cb962ac59075b964b07152d234b70', 'Raaaa', 'reziapriliansyah@gmail.com', '', 2, 'as', 'confirmed');
+(1, 'apranta', '202cb962ac59075b964b07152d234b70', 'Rezi apriliansyah 111', 'apranta123@gmail.com', '08981073502', 1, 'asasas', 'confirmed'),
+(2, 'aaa', '202cb962ac59075b964b07152d234b70', 'Rezi apriliansyah', 'reziapriliansyah@gmail.com', '08981073502', 2, 'as', 'confirmed'),
+(3, 'apranta1', '202cb962ac59075b964b07152d234b70', 'adhi firman', '09031281320024@students.ilkom.unsri.ac.id', '08981073502', 2, 'rr', 'waiting');
 
 --
 -- Indexes for dumped tables
@@ -342,7 +332,7 @@ ALTER TABLE `paket`
 -- AUTO_INCREMENT untuk tabel `pembayaran`
 --
 ALTER TABLE `pembayaran`
-  MODIFY `id_pembayaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_pembayaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `produk`
@@ -360,13 +350,13 @@ ALTER TABLE `role`
 -- AUTO_INCREMENT untuk tabel `testimonial`
 --
 ALTER TABLE `testimonial`
-  MODIFY `id_testimonial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_testimonial` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

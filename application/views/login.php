@@ -177,6 +177,14 @@ License: You must have a valid license purchased only from themeforest(the above
         <!-- BEGIN THEME LAYOUT SCRIPTS -->
         <!-- END THEME LAYOUT SCRIPTS -->
         <script>
+            jQuery("#register-btn").click(function(){
+                jQuery(".login-form").hide(),
+                jQuery(".register-form").show()
+            });
+            jQuery("#register-back-btn").click(function(){
+                jQuery(".login-form").show(),
+                jQuery(".register-form").hide()
+            });
             $(document).ready(function()
             {
                 $('#clickmewow').click(function()

@@ -78,9 +78,10 @@ class Admin extends MY_Controller
 			$this->Produk_m->insert([
 				'nama_produk'	=> $this->POST('nama'),
 				'deskripsi'		=> $this->POST('deskripsi'),
-				'stok'			=> $this->POST('stok'),
+				// 'stok'			=> $this->POST('stok'),
 				'jenis'			=> $this->POST('jenis'),
-				'jadwal' 		=> $this->POST('jadwal')
+				'jadwal' 		=> $this->POST('jadwal'),
+				'jadwal_berangkat' => $this->POST('tanggal')
 			]);
 
 			$this->upload($this->db->insert_id() ,'/assets/img/' , 'foto');
