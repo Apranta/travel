@@ -38,6 +38,7 @@
                                                 <td>
                                                     <div class="btn-group">
                                                         <a href="<?= base_url('admin/detail_paket/' . $value->id_produk) ?>" class="btn btn-circle btn-primary"><i class="fa fa-eye"></i> Detail</a>
+                                                        <a href="<?= base_url('admin/edit_paket/' . $value->id_produk) ?>" class="btn btn-circle btn-link"><i class="fa fa-edit"></i> Edit</a>
                                                         <button onclick="_delete(<?= $value->id_produk ?>)" class="btn btn-circle btn-danger">Hapus</button>
                                                     </div>
                                                 </td>

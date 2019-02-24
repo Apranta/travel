@@ -133,4 +133,13 @@ class Home extends MY_Controller
 		$this->data['content']	= 'upload_bukti';
 		$this->template($this->data, $this->module);
 	}
+
+	public function about()
+	{
+		$this->load->model('About_m');
+		$this->data['data']	= $this->About_m->get_last_row();
+		$this->data['title']	= 'Dashboard';
+		$this->data['content']	= 'about';
+		$this->template($this->data, $this->module);
+	}
 }

@@ -74,6 +74,21 @@
                                     <span class="title">Data Testimoni</span>
                                 </a>
                             </li>
+
+
+                            <li class="nav-item  ">
+                                <a href="<?= base_url('admin/laporan') ?>">
+                                    <i class="icon-diamond"></i>
+                                    <span class="title">Data Laporan</span>
+                                </a>
+                            </li>
+
+                            <li class="nav-item  ">
+                                <a href="<?= base_url('admin/about') ?>">
+                                    <i class="icon-diamond"></i>
+                                    <span class="title">About</span>
+                                </a>
+                            </li>
                         </ul>
                         <!-- END SIDEBAR MENU -->
                     </div>

@@ -63,6 +63,7 @@
                             </td>
     						<td>
 								<a class="btn btn-xs btn-circle btn-danger" href="<?= base_url('admin/data-gallery?action=hapus&id='. $data->id_gallery) ?>">Hapus</a>
+                                <a class="btn btn-xs btn-circle btn-primary" href="<?= base_url('admin/edit-gallery/'. $data->id_gallery) ?>">Edit</a>
     						</td>
     					</tr>
     						

@@ -95,6 +95,55 @@ class Admin extends MY_Controller
 		$this->template($this->data, $this->module);
 	}
 
+	public function edit_jenis_paket()
+	{
+		if ($this->POST('simpan')) {
+
+			$this->Paket_m->update($this->POST('id_paket') , [
+				'nama_paket'	=> $this->POST('nama'),
+				'deskripsi'		=> $this->POST('deskripsi'),
+				'harga'			=> $this->POST('harga'),
+			]);
+
+			// $this->upload($this->db->insert_id() ,'/assets/img/' , 'foto');
+
+			$this->flashmsg('Berhasil di Update');
+			redirect('admin/detail_paket/'. $this->POST('id_produk'),'refresh');
+			exit;
+		}
+		$this->data['id_jenis']	= $this->uri->segment(3);
+		$this->data['data']		= $this->Paket_m->get_row(['id_paket' => $this->data['id_jenis']]);
+		$this->data['title']	= 'Dashboard';
+		$this->data['content']	= 'edit_jenis';
+		$this->template($this->data, $this->module);
+	}
+
+	public function edit_paket()
+	{
+		if ($this->POST('simpan')) {
+
+			$this->Produk_m->update($this->POST('id_produk') , [
+				'nama_produk'	=> $this->POST('nama'),
+				'deskripsi'		=> $this->POST('deskripsi'),
+				'jenis'			=> $this->POST('jenis'),
+				'jadwal' 		=> $this->POST('jadwal'),
+				'jadwal_berangkat' => $this->POST('tanggal')
+			]);
+			if (!empty($_FILES)) {
+				$this->upload($this->POST('id_produk') ,'/assets/img/' , 'foto');
+			}
+
+			$this->flashmsg('Berhasil di Update');
+			redirect('admin/data_paket','refresh');
+			exit;
+		}
+		$this->data['id_produk']	= $this->uri->segment(3);
+		$this->data['data']		= $this->Produk_m->get_row(['id_produk' => $this->data['id_produk']]);
+		$this->data['title']	= 'Dashboard';
+		$this->data['content']	= 'edit_paket';
+		$this->template($this->data, $this->module);
+	}
+
 	public function detail_paket()
 	{
 		$id_produk = $this->uri->segment(3);
@@ -151,6 +200,64 @@ class Admin extends MY_Controller
 		$this->template($this->data, $this->module);
 	}
 
+	public function edit_gallery()
+	{
+		$action = $this->GET('action');
+		$id = $this->GET('id');
+		if ($action == 'hapus') {
+			$this->Gallery_m->delete($id);
+			redirect('admin/data-gallery','refresh');
+			exit;
+		}
+		if ($this->POST('simpan')) {
+			// $this->dump($_FILES);
+			// exit;
+			
+			if (!empty($_FILES['foto']['name'][0])) {
+					for ($i = 0; $i < count($_FILES['foto']['name']); $i++)
+					{
+						$_FILES['fotoo']['name']= $_FILES['foto']['name'][$i];
+			            $_FILES['fotoo']['type']= $_FILES['foto']['type'][$i];
+			            $_FILES['fotoo']['tmp_name']= $_FILES['foto']['tmp_name'][$i];
+			            $_FILES['fotoo']['error']= $_FILES['foto']['error'][$i];
+			            $_FILES['fotoo']['size']= $_FILES['foto']['size'][$i];
+			            $f = str_replace(" ","", $_FILES['fotoo']['name']);
+			            $fto = explode(".", $f);
+						$ft[]= $fto[0];
+						$this->upload($fto[0] ,'/assets/gallery/' , 'fotoo');
+					}
+					$this->Gallery_m->update($this->POST('id_gallery') , [
+						'nama'	=> $this->POST('nama'),
+						'jenis'	=> $this->POST('jenis'),
+						'image'	=> json_encode($ft),
+						'deskripsi' => $this->POST('deskripsi')
+					]);
+
+
+					$this->flashmsg('Berhasil di Update');
+					redirect('admin/data_gallery','refresh');
+					exit;
+			}
+
+					$this->Gallery_m->update($this->POST('id_gallery') , [
+						'nama'	=> $this->POST('nama'),
+						'jenis'	=> $this->POST('jenis'),
+						'deskripsi' => $this->POST('deskripsi')
+					]);
+
+					
+
+			$this->flashmsg('Berhasil di tambah');
+			redirect('admin/data_gallery','refresh');
+			exit;
+		}	
+		$this->data['id_gallery'] = $this->uri->segment(3);
+		$this->data['data'] = $this->Gallery_m->get_row(['id_gallery' => $this->data['id_gallery']]);
+		$this->data['title']	= 'Dashboard';
+		$this->data['content']	= 'edit_gallery';
+		$this->template($this->data, $this->module);
+	}
+
 	public function data_testimonial()
 	{
 		$action = $this->GET('action');
@@ -168,6 +275,8 @@ class Admin extends MY_Controller
 
 	public function data_pemesanan()
 	{
+
+		$this->load->library('tanggal');
 		$this->load->model('Order_m');
 		$this->load->model('User_m');
 		$this->load->model('Produk_m');
@@ -241,4 +350,35 @@ class Admin extends MY_Controller
 		$this->data['content']	= 'dashboard';
 		$this->template($this->data, $this->module);
 	}
+
+	public function about()
+	{
+		$this->load->model('About_m');
+		if ($this->POST('simpan')) {
+			if ($this->POST('id_about') == '') {
+				$this->About_m->insert(['isi' => $this->POST('about')]);
+			}
+			else
+				$this->About_m->update($this->POST('id_about') , ['isi' => $this->POST('about')]);
+			$this->go_back('admin/about');
+		}
+		$this->data['data']	= $this->About_m->get_last_row();
+		$this->data['title']	= 'Dashboard';
+		$this->data['content']	= 'about';
+		$this->template($this->data, $this->module);
+	}
+
+	public function laporan()
+	{
+		$this->load->library('tanggal');
+		$bulan = $this->GET('bulan');
+		if (isset($bulan)) 
+			$this->data['data'] = $this->Order_m->get("MONTH(order_date) = " . $bulan);
+		else
+			$this->data['data'] = $this->Order_m->get();
+
+		$this->data['title']	= 'Laporan Bulanan';
+		$this->data['content']	= 'laporan';
+		$this->template($this->data, $this->module);
+	}	
 }
