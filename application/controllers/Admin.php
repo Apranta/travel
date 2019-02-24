@@ -48,6 +48,14 @@ class Admin extends MY_Controller
 		$this->template($this->data, $this->module);
 	}
 
+	public function user()
+	{
+		$this->data['data']	= $this->User_m->get(['id_role'=>"2"]);
+		$this->data['title']	= 'Dashboard';
+		$this->data['content']	= 'data_user';
+		$this->template($this->data, $this->module);
+	}
+
 	public function tambah_jenis_paket()
 	{
 		if ($this->POST('simpan')) {

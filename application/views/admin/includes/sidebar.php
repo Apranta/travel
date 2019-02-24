@@ -82,7 +82,12 @@
                                     <span class="title">Data Laporan</span>
                                 </a>
                             </li>
-
+                            <li class="nav-item  ">
+                                <a href="<?= base_url('admin/user') ?>">
+                                    <i class="icon-diamond"></i>
+                                    <span class="title">Data User</span>
+                                </a>
+                            </li>
                             <li class="nav-item  ">
                                 <a href="<?= base_url('admin/about') ?>">
                                     <i class="icon-diamond"></i>

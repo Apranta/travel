@@ -11,6 +11,13 @@
                 <span class="sr-only">(current)</span>
               </a>
             </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbar_main_dropdown_1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Kategori</a>
+              <div class="dropdown-menu" aria-labelledby="navbar_1_dropdown_1">
+                <a class="dropdown-item" href="<?= base_url('home/domestik') ?>">Domestik</a>
+                <a class="dropdown-item" href="<?= base_url('home/internasional') ?>">Internasional</a>
+              </div>
+            </li>
             <li class="nav-item">
               <a class="nav-link" href="<?= base_url('home/gallery') ?>">Gallery
                 <span class="sr-only">(current)</span>
@@ -27,6 +34,7 @@
                 <span class="sr-only">(current)</span>
               </a>
             </li>
+            
             <?php if ($this->session->userdata('username')): ?>
 
               <li class="nav-item">

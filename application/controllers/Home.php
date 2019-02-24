@@ -20,6 +20,21 @@ class Home extends MY_Controller
 		$this->template($this->data, $this->module);
 	}
 
+	public function domestik()
+	{
+		$this->data['data']	= $this->Produk_m->get(['jenis' => "domestic"]);
+		$this->data['title']	= 'Domestik';
+		$this->data['content']	= 'domestik';
+		$this->template($this->data, $this->module);
+	}
+
+public function internasional()
+	{
+		$this->data['data']	= $this->Produk_m->get(['jenis' => "internasional"]);
+		$this->data['title']	= 'Domestik';
+		$this->data['content']	= 'internasional';
+		$this->template($this->data, $this->module);
+	}
 	public function gallery()
 	{
 		$this->data['data']	= $this->Gallery_m->get();
