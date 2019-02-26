@@ -6,9 +6,8 @@
 	        <p class="text-white m-0">
 	        	Id Order Anda <?= $data->order_id ?> <small>Harap Simpan Order Id untuk Melakukan Konfirmasi Pembayaran</small><br>
 	          Silahkan Lakukan Pembayaran Sejumlah Rp. <?= $data->total ?> ke <br>
-	          Rekening BNI 0327081560<br>
-				Atas Nama Titan Tour Travel<br>
-				<br>
+	          <?php $norek = $this->Norek_m->get_last_row();
+	          echo $norek->isi; ?>
 				Apabila telah Melakukan Pembayaran silahkan upload bukti pembayaran <a href="<?= base_url('home/bukti') ?>" > Disini </a>
 	        </p>
 	      </div>

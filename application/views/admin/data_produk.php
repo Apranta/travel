@@ -22,6 +22,7 @@
                                                 <th> # </th>
                                                 <th> Nama</th>
                                                 <th> Jenis Perjalanan </th>
+                                                <th> Tanggal Keberangkatan</th>
                                                 <th> Jumlah Paket </th>
                                                 <th> Actions </th>
                                             </tr>
@@ -32,6 +33,7 @@
                                                 <td><?= ++$i ?></td>
                                                 <td> <?= $value->nama_produk ?> </td>
                                                 <td><?= $value->jenis ?></td>
+                                                <td><?= $value->jadwal_berangkat ?></td>
                                                 <td>
                                                     <?= count($this->Paket_m->get(['id_produk' => $value->id_produk])) ?>
                                                 </td>

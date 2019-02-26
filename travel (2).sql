@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 24 Feb 2019 pada 18.58
+-- Waktu pembuatan: 26 Feb 2019 pada 17.03
 -- Versi server: 10.1.37-MariaDB
 -- Versi PHP: 7.3.1
 
@@ -33,6 +33,13 @@ CREATE TABLE `about` (
   `isi` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `about`
+--
+
+INSERT INTO `about` (`id_about`, `isi`) VALUES
+(1, '<p>manusia 123</p>');
+
 -- --------------------------------------------------------
 
 --
@@ -61,6 +68,32 @@ CREATE TABLE `gallery` (
   `nama` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `gallery`
+--
+
+INSERT INTO `gallery` (`id_gallery`, `image`, `deskripsi`, `jenis`, `nama`) VALUES
+(6, '[\"\"]', '<p>b</p>', 'internasional', 'sss123'),
+(7, '[\"Screenshot(11)\",\"Screenshot(14)\"]', '<p>22222</p>', 'internasional', '21');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `norek`
+--
+
+CREATE TABLE `norek` (
+  `id_norek` int(11) NOT NULL,
+  `isi` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `norek`
+--
+
+INSERT INTO `norek` (`id_norek`, `isi`) VALUES
+(1, '<p>No rekekening 0327081560</p>');
+
 -- --------------------------------------------------------
 
 --
@@ -74,8 +107,25 @@ CREATE TABLE `order` (
   `payment_status` enum('paid','pending','cancel') NOT NULL DEFAULT 'pending',
   `id_paket` int(11) NOT NULL,
   `qty` int(11) NOT NULL,
-  `total` int(11) NOT NULL
+  `total` int(11) NOT NULL,
+  `status_perjalanan` enum('selesai','menunggu') NOT NULL DEFAULT 'menunggu'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `order`
+--
+
+INSERT INTO `order` (`order_id`, `customer_id`, `order_date`, `payment_status`, `id_paket`, `qty`, `total`, `status_perjalanan`) VALUES
+(1, 1, '2019-02-04', 'paid', 1, 3, 33333, 'selesai'),
+(166323408, 2, '2019-02-13', 'paid', 1, 4, 44444, 'selesai'),
+(170146735, 2, '2019-02-26', 'pending', 1, 2, 222224, 'selesai'),
+(232832644, 1, '2019-02-04', 'pending', 1, 3, 33333, 'selesai'),
+(291763256, 2, '2019-02-14', 'pending', 1, 2, 22222, 'selesai'),
+(430167065, 2, '2019-02-26', 'pending', 1, 3, 333336, 'menunggu'),
+(534433845, 2, '2019-02-14', 'pending', 1, 2, 22222, 'selesai'),
+(627651189, 2, '2019-02-14', 'pending', 1, 2, 22222, 'selesai'),
+(780782987, 2, '2019-02-14', 'pending', 1, 2, 22222, 'selesai'),
+(1975740775, 2, '2019-02-26', 'pending', 1, 2, 222224, 'selesai');
 
 -- --------------------------------------------------------
 
@@ -106,6 +156,13 @@ CREATE TABLE `paket` (
   `harga` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `paket`
+--
+
+INSERT INTO `paket` (`id_paket`, `id_produk`, `nama_paket`, `deskripsi`, `harga`) VALUES
+(1, 1, 'asasa', '<p>asasasasas</p>', 111112);
+
 -- --------------------------------------------------------
 
 --
@@ -119,6 +176,13 @@ CREATE TABLE `pembayaran` (
   `deposit` bigint(20) NOT NULL,
   `status` enum('konfirm','menunggu') NOT NULL DEFAULT 'menunggu'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `pembayaran`
+--
+
+INSERT INTO `pembayaran` (`id_pembayaran`, `id_order`, `pembayaran_date`, `deposit`, `status`) VALUES
+(1, 232832644, '2019-02-03 20:19:12', 0, 'konfirm');
 
 -- --------------------------------------------------------
 
@@ -135,6 +199,13 @@ CREATE TABLE `produk` (
   `jadwal_berangkat` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `produk`
+--
+
+INSERT INTO `produk` (`id_produk`, `nama_produk`, `deskripsi`, `jenis`, `jadwal`, `jadwal_berangkat`) VALUES
+(1, 'aaaaaaaa', '<p>aaaaa</p>', 'domestic', '<p>aaaaaa</p>', '0000-00-00');
+
 -- --------------------------------------------------------
 
 --
@@ -145,6 +216,14 @@ CREATE TABLE `role` (
   `id_role` int(11) NOT NULL,
   `nama` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `role`
+--
+
+INSERT INTO `role` (`id_role`, `nama`) VALUES
+(1, 'Admin'),
+(2, 'Pengguna');
 
 -- --------------------------------------------------------
 
@@ -159,6 +238,13 @@ CREATE TABLE `testimonial` (
   `testimonial` text NOT NULL,
   `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `testimonial`
+--
+
+INSERT INTO `testimonial` (`id_testimonial`, `id_customer`, `id_order`, `testimonial`, `date`) VALUES
+(1, 2, 170146735, 'Bagus banget', '2019-02-26 22:35:35');
 
 -- --------------------------------------------------------
 
@@ -177,6 +263,15 @@ CREATE TABLE `user` (
   `alamat` text NOT NULL,
   `confirmed` enum('confirmed','waiting') NOT NULL DEFAULT 'waiting'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `user`
+--
+
+INSERT INTO `user` (`id_user`, `username`, `password`, `nama`, `email`, `kontak`, `id_role`, `alamat`, `confirmed`) VALUES
+(1, 'apranta', '202cb962ac59075b964b07152d234b70', 'Rezi apriliansyah 111', 'apranta123@gmail.com', '08981073502', 1, 'asasas', 'confirmed'),
+(2, 'aaa', '202cb962ac59075b964b07152d234b70', 'Rezi apriliansyah', 'reziapriliansyah@gmail.com', '08981073502', 2, 'as', 'confirmed'),
+(3, 'apranta1', '202cb962ac59075b964b07152d234b70', 'adhi firman', '09031281320024@students.ilkom.unsri.ac.id', '08981073502', 2, 'rr', 'waiting');
 
 --
 -- Indexes for dumped tables
@@ -199,6 +294,12 @@ ALTER TABLE `chat`
 --
 ALTER TABLE `gallery`
   ADD PRIMARY KEY (`id_gallery`);
+
+--
+-- Indeks untuk tabel `norek`
+--
+ALTER TABLE `norek`
+  ADD PRIMARY KEY (`id_norek`);
 
 --
 -- Indeks untuk tabel `order`
@@ -266,7 +367,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `about`
 --
 ALTER TABLE `about`
-  MODIFY `id_about` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_about` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `chat`
@@ -278,7 +379,13 @@ ALTER TABLE `chat`
 -- AUTO_INCREMENT untuk tabel `gallery`
 --
 ALTER TABLE `gallery`
-  MODIFY `id_gallery` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_gallery` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT untuk tabel `norek`
+--
+ALTER TABLE `norek`
+  MODIFY `id_norek` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `order_detail`
@@ -290,37 +397,37 @@ ALTER TABLE `order_detail`
 -- AUTO_INCREMENT untuk tabel `paket`
 --
 ALTER TABLE `paket`
-  MODIFY `id_paket` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_paket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `pembayaran`
 --
 ALTER TABLE `pembayaran`
-  MODIFY `id_pembayaran` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pembayaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `role`
 --
 ALTER TABLE `role`
-  MODIFY `id_role` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `testimonial`
 --
 ALTER TABLE `testimonial`
-  MODIFY `id_testimonial` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_testimonial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

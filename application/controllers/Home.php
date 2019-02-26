@@ -8,7 +8,7 @@ class Home extends MY_Controller
 		$this->module = 'home';
 		$this->load->model('Testimonial_m');
 		$this->load->model('Produk_m');
-		$this->load->model(['Gallery_m' , 'Paket_m' , 'Order_m' , 'User_m']);
+		$this->load->model(['Gallery_m' , 'Paket_m' , 'Order_m' , 'User_m' , 'Norek_m']);
 		// $this->session->unset_userdata('id_order');
 	}
 
@@ -89,9 +89,10 @@ public function internasional()
 		$this->data['id_produk'] = $this->GET('id_produk');
 		$this->data['id_paket'] = $this->GET('id_paket');
 		$this->check_allowance(!isset($this->data['id_produk'],$this->data['id_paket']));
-		$this->data['data'] = $this->Paket_m->getDataJoinRow(['produk'] , ['id_produk' , 'id_produk']);
+		$this->data['data'] = $this->Paket_m->getDataJoinRow(['produk'] , ['id_produk' , 'id_produk'] , ['paket.id_paket' => $this->data['id_paket'] ]);
 		$this->data['title']	= 'Dashboard';
 		$this->data['content']	= 'pemesanan';
+		// $this->dump($this->data);exit;
 		$this->template($this->data, $this->module);
 	}
 
@@ -116,6 +117,9 @@ public function internasional()
 				'total'			=> $this->POST('total')
 			];
 			$this->Order_m->insert($dat);
+			$email = $this->User_m->get_row(['id_user' => $this->session->userdata('id_user')])->email;
+			$this->data['data'] = $this->Paket_m->getDataJoinRow(['produk'] , ['id_produk' , 'id_produk'] , ['paket.id_paket' => $dat['id_paket'] ]);
+			$this->sendMail($email, 'Rincian Pemesanan Paket Perjalanan Titan Tour Travel', 'Pemesanan Perjalanan Anda adalah sebagai berikut : <br><b> Id Order : ' . $dat['order_id'] . '<br> Paket Perjalanan : ' . $this->data['data']->nama_produk .'<br> </b> segera lakukan pembayaran untuk melanjutkan pemesanan');
 			$this->session->set_userdata( ['id_order' => $dat['order_id']] );
 			redirect('home/pesan','refresh');
 			exit;
@@ -157,4 +161,20 @@ public function internasional()
 		$this->data['content']	= 'about';
 		$this->template($this->data, $this->module);
 	}
+
+	private function sendMail($address, $subject, $body)
+    {
+        $this->load->library('CI_PHPMailer/ci_phpmailer');
+        try 
+        {
+            $this->ci_phpmailer->setServer('smtp.gmail.com');
+            $this->ci_phpmailer->setAuth('testdevsmail@gmail.com', '4kuGanteng');
+            $this->ci_phpmailer->setAlias('no-reply@titantourtravel.com', 'No Reply');
+            $this->ci_phpmailer->sendMessage($address, $subject, $body);    
+        } 
+        catch (Exception $e)
+        {
+            $this->ci_phpmailer->displayError();
+        }
+    }
 }

@@ -19,12 +19,12 @@
                                 </a>
                             </li>
                             <li class="heading">
-                                <h3 class="uppercase">Data Perjalanan</h3>
+                                <h3 class="uppercase">Perjalanan</h3>
                             </li>
                             <li class="nav-item  ">
                                 <a href="#" class="nav-link nav-toggle">
                                     <i class="icon-diamond"></i>
-                                    <span class="title">Paket Perjalanan</span>
+                                    <span class="title">Data Perjalanan</span>
                                     <span class="arrow"></span>
                                 </a>
                                 <ul class="sub-menu">
@@ -92,6 +92,12 @@
                                 <a href="<?= base_url('admin/about') ?>">
                                     <i class="icon-diamond"></i>
                                     <span class="title">About</span>
+                                </a>
+                            </li>
+                            <li class="nav-item  ">
+                                <a href="<?= base_url('admin/norek') ?>">
+                                    <i class="icon-diamond"></i>
+                                    <span class="title">Ubah No Rekening</span>
                                 </a>
                             </li>
                         </ul>

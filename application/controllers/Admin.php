@@ -42,6 +42,13 @@ class Admin extends MY_Controller
 			$this->Produk_m->delete($this->POST('id'));
 			exit;
 		}
+		if ($this->POST('konfirm')) {
+			$produk = $this->Paket_m->get(['id_produk' => $this->POST('id')]);
+			foreach ($produk as $pro) {
+				$this->Order_m->update_where(['id_paket' => $pro->id_paket] , ['status_perjalanan' => 'selesai']);
+			}
+			exit;
+		}
 		$this->data['data']	= $this->Produk_m->get();
 		$this->data['title']	= 'Dashboard';
 		$this->data['content']	= 'data_produk';
@@ -154,6 +161,7 @@ class Admin extends MY_Controller
 
 	public function detail_paket()
 	{
+		$this->load->library('tanggal');
 		$id_produk = $this->uri->segment(3);
 		$this->check_allowance(!isset($id_produk));
 		$this->data['data']		= $this->Produk_m->get_row(['id_produk' => $id_produk]);
@@ -373,6 +381,23 @@ class Admin extends MY_Controller
 		$this->data['data']	= $this->About_m->get_last_row();
 		$this->data['title']	= 'Dashboard';
 		$this->data['content']	= 'about';
+		$this->template($this->data, $this->module);
+	}
+
+	public function norek()
+	{
+		$this->load->model('Norek_m');
+		if ($this->POST('simpan')) {
+			if ($this->POST('id_norek') == '') {
+				$this->Norek_m->insert(['isi' => $this->POST('norek')]);
+			}
+			else
+				$this->Norek_m->update($this->POST('id_norek') , ['isi' => $this->POST('norek')]);
+			$this->go_back('admin/norek');
+		}
+		$this->data['data']	= $this->Norek_m->get_last_row();
+		$this->data['title']	= 'Dashboard';
+		$this->data['content']	= 'norek';
 		$this->template($this->data, $this->module);
 	}
 

@@ -55,6 +55,7 @@ class User extends MY_Controller
 			redirect('user/testimoni','refresh');
 			exit;
 		}
+		$this->data['testimoni']	= $this->Order_m->get(['customer_id' => $this->session->userdata('id_user') , 'status_perjalanan' => 'selesai']);
 		$this->data['data']		= $this->Testimonial_m->get(['id_customer' => $this->data['id_user']]);
 		$this->data['title']	= 'Dashboard';
 		$this->data['content']	= 'testimoni';
