@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 26 Feb 2019 pada 17.03
+-- Waktu pembuatan: 02 Mar 2019 pada 21.27
 -- Versi server: 10.1.37-MariaDB
 -- Versi PHP: 7.3.1
 
@@ -48,11 +48,22 @@ INSERT INTO `about` (`id_about`, `isi`) VALUES
 
 CREATE TABLE `chat` (
   `id_chat` int(11) NOT NULL,
-  `nama` int(11) NOT NULL,
+  `dari` int(11) NOT NULL,
   `ke` int(11) NOT NULL,
   `message` text NOT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `chat`
+--
+
+INSERT INTO `chat` (`id_chat`, `dari`, `ke`, `message`, `date`) VALUES
+(1, 1, 2, 'asas', '2019-03-02 19:20:25'),
+(2, 1, 3, 'saya', '2019-03-02 20:20:19'),
+(3, 1, 3, 'besok pergi', '2019-03-02 20:20:49'),
+(4, 1, 3, 'kemana', '2019-03-02 20:21:53'),
+(5, 2, 1, 'kapan pergi?', '2019-03-02 20:25:30');
 
 -- --------------------------------------------------------
 
@@ -373,7 +384,7 @@ ALTER TABLE `about`
 -- AUTO_INCREMENT untuk tabel `chat`
 --
 ALTER TABLE `chat`
-  MODIFY `id_chat` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_chat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `gallery`
