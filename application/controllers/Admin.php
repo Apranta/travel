@@ -414,4 +414,55 @@ class Admin extends MY_Controller
 		$this->data['content']	= 'laporan';
 		$this->template($this->data, $this->module);
 	}	
+
+	public function chat()
+	{
+		$this->load->model('Chat_m');
+		if ($this->POST('get')) {
+			$this->session->unset_userdata('id_user_chat');
+			$array = array(
+				'id_user_chat' => $this->POST('id')
+			);
+			$html = '';
+			$this->session->set_userdata( $array );
+			$get = '(dari = '. $this->data['id_user'].' AND ke='.$this->POST('id').') OR (dari ='.$this->POST('id').' AND ke='.$this->data['id_user'].')';
+			$chat= $this->Chat_m->get_by_order("date","ASC", $get);
+			foreach($chat as $d){
+				if ($d->dari == $this->data['id_user']) {
+					$html .= '	<div class="post in"> ';
+                      
+				}
+				else{
+					$html .= '	<div class="post out"> ';
+
+				}
+				$html .= '<img class="avatar" alt="" src="'. base_url('assets/default-user.png') .'">
+                                    <div class="message">
+                                        <span class="arrow"></span>
+                                        <span class="datetime">'. $d->date .'</span>
+                                        <span class="body">'.$d->message.'</span>
+                                    </div>
+                                </div>';
+			}
+			echo $html;
+		}
+		if ($this->POST('kirim')) {
+			$this->Chat_m->insert([
+				'dari' 	=> $this->data['id_user'],
+				'ke'	=> $this->POST('id_penerima'),
+				'message' => $this->POST('pesan')
+			]);
+			$d = $this->Chat_m->get_row(['id_chat' => $this->db->insert_id()]);
+				$html="";
+				$html .= '	<div class="post in"> ';
+				$html .= '<img class="avatar" alt="" src="'. base_url('assets/default-user.png') .'">
+                                    <div class="message">
+                                        <span class="arrow"></span>
+                                        <span class="datetime">'. $d->date .'</span>
+                                        <span class="body">'.$d->message.'</span>
+                                    </div>
+                                </div>';
+			echo $html;
+		}
+	}
 }

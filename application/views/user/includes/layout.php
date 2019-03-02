@@ -5,4 +5,5 @@
 	$this->load->view($module . '/includes/sidebar');
 	$this->load->view($module . '/' . $content);
 	$this->load->view($module . '/includes/footer');
+	$this->load->view($module . '/includes/chat');
 ?>

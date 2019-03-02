@@ -14,75 +14,7 @@
                 <!-- END FOOTER -->
             </div>
         </div>
-        <a href="javascript:;" class="page-quick-sidebar-toggler">
-            <i class="icon-login"></i>
-        </a>
-        <div class="page-quick-sidebar-wrapper" data-close-on-body-click="false">
-            <div class="page-quick-sidebar">
-                <ul class="nav nav-tabs">
-                    <li class="active">
-                        <a href="javascript:;" data-target="#quick_sidebar_tab_1" data-toggle="tab"> Users
-                        </a>
-                    </li>
-                </ul>
-                <div class="tab-content">
-                    <div class="tab-pane active page-quick-sidebar-chat" id="quick_sidebar_tab_1">
-                        <div class="page-quick-sidebar-list" style="position: relative; overflow: hidden; width: auto; height: 551px;"><div class="page-quick-sidebar-chat-users" data-rail-color="#ddd" data-wrapper-class="page-quick-sidebar-list" data-height="551" data-initialized="1" style="overflow: hidden; width: auto; height: 551px;">
-                            <h3 class="list-heading">User</h3>
-                            <ul class="media-list list-items">
-                                <?php foreach($user as $data ) : ?>
-                                <li class="media">
-                                    <img class="media-object" src="<?= base_url('assets/metronic') ?>/assets/layouts/layout/img/avatar3.jpg" alt="<?= base_url('assets/metronic') ?>.">
-                                    <div class="media-body">
-                                        <h4 class="media-heading"><?= $data->nama ?></h4>
-                                        <!-- <div class="media-heading-sub"> Project Manager </div> -->
-                                    </div>
-                                </li>
-                                <?php endforeach; ?>
-                            </ul>
-                        </div><div class="slimScrollBar" style="background: rgb(187, 187, 187); width: 7px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 347.767px;"></div><div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(221, 221, 221); opacity: 0.2; z-index: 90; right: 1px;"></div></div>
-                        <div class="page-quick-sidebar-item">
-                            <div class="page-quick-sidebar-chat-user">
-                                <div class="page-quick-sidebar-nav">
-                                    <a href="javascript:;" class="page-quick-sidebar-back-to-list">
-                                        <i class="icon-arrow-left"></i>Back</a>
-                                </div>
-                                <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 446px;"><div class="page-quick-sidebar-chat-user-messages" data-height="446" data-initialized="1" style="overflow: hidden; width: auto; height: 446px;">
-                                    <div class="post out">
-                                        <img class="avatar" alt="" src="<?= base_url('assets/metronic') ?>/assets/layouts/layout/img/avatar3.jpg">
-                                        <div class="message">
-                                            <span class="arrow"></span>
-                                            <a href="javascript:;" class="name">Bob Nilson</a>
-                                            <span class="datetime">20:15</span>
-                                            <span class="body"> When could you send me the report ? </span>
-                                        </div>
-                                    </div>
-                                    <div class="post in">
-                                        <img class="avatar" alt="" src="<?= base_url('assets/metronic') ?>/assets/layouts/layout/img/avatar2.jpg">
-                                        <div class="message">
-                                            <span class="arrow"></span>
-                                            <a href="javascript:;" class="name">Ella Wong</a>
-                                            <span class="datetime">20:15</span>
-                                            <span class="body"> Its almost done. I will be sending it shortly </span>
-                                        </div>
-                                    </div>
-                                </div><div class="slimScrollBar" style="background: rgb(187, 187, 187); width: 7px; position: absolute; top: 0px; opacity: 0.4; display: block; border-radius: 7px; z-index: 99; right: 1px; height: 294.254px;"></div><div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(234, 234, 234); opacity: 0.2; z-index: 90; right: 1px;"></div></div>
-                                <div class="page-quick-sidebar-chat-user-form">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="Type a message here...">
-                                        <div class="input-group-btn">
-                                            <button type="button" class="btn green">
-                                                <i class="fa fa-send"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
         <!-- END CONTAINER -->
         <!--[if lt IE 9]>
 <script src="<?= base_url('assets/metronic') ?>/assets/global/plugins/respond.min.js"></script>
@@ -145,6 +77,20 @@
                 {
                     $('#radio1003').attr('checked', 'checked');
                 });
+
+                function chat(id){
+                    $.ajax({
+                        url: "<?= base_url('admin/chat') ?>",
+                        type: 'POST',
+                        data: {
+                            id: id,
+                            get: true
+                        },
+                        success: function(data) {
+                            $("#isi").html()
+                        }
+                  });
+                }
             })
         </script>
     </body>
